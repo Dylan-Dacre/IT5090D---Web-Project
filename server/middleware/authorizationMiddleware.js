@@ -5,4 +5,4 @@ const checkJwt = auth({
   issuer: "https://example.auth0.com/",
 });
 
-module.exports = checkJwt;
+module.exports = { checkJwt };
