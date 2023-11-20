@@ -24,14 +24,6 @@ async function connect() {
   return db;
 }
 
-function getDb() {
-  if (!db) {
-    throw new Error("Call connect() first");
-  }
-  return db;
-}
-
 module.exports = {
   connect,
-  getDb,
 };
