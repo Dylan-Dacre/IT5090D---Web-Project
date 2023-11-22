@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
+import ProtectedRoute from "./auth/protected-route";
+import Home from "./components/Home";
+import Faq from "./components/Faq";
+import Contact from "./components/Contact";
+import Tasks from "./components/Tasks";
+import Lists from "./components/Lists";
+import Notes from "./components/Notes";
 
-function App() {
+const App = () => {
+  const { isLoading } = useAuth0();
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/faq" element={<Faq />} />
+          <Route path="/contact" element={<Contact />} />
+
+          <Route path="/tasks" element={<ProtectedRoute />}>
+            <Route index element={<Tasks />} />
+          </Route>
+
+          <Route path="/lists" element={<ProtectedRoute />}>
+            <Route index element={<Lists />} />
+          </Route>
+
+          <Route path="/notes" element={<ProtectedRoute />}>
+            <Route index element={<Notes />} />
+          </Route>
+        </Routes>
+      </div>
+    </>
   );
-}
+};
 
 export default App;
