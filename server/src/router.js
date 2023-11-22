@@ -17,7 +17,7 @@ router.get("/tasks", checkJwt, async (req, res, next) => {
   try {
     const userId = req.auth.payload.sub;
     const tasks = await getTasks.getTasks(userId);
-    return res.json(tasks);
+    return res.status(200).json(tasks);
   } catch (err) {
     next(err);
   }
@@ -27,7 +27,7 @@ router.get("/lists", checkJwt, async (req, res, next) => {
   try {
     const userId = req.auth.payload.sub;
     const lists = await getLists.getLists(userId);
-    return res.json(lists);
+    return res.status(200).json(lists);
   } catch (err) {
     next(err);
   }
@@ -37,7 +37,7 @@ router.get("/notes", checkJwt, async (req, res, next) => {
   try {
     const userId = req.auth.payload.sub;
     const notes = await getNotes.getNotes(userId);
-    return res.json(notes);
+    return res.status(200).json(notes);
   } catch (err) {
     next(err);
   }
@@ -48,9 +48,9 @@ router.get("/notes", checkJwt, async (req, res, next) => {
 router.get("/tasks/:id", checkJwt, async (req, res, next) => {
   try {
     const userId = req.auth.payload.sub;
-    const id = req.params.id;
-    const task = await getTask.getTask(userId, id);
-    return res.json(task);
+    const taskId = req.params.id;
+    const task = await getTask.getTask(userId, taskId);
+    return res.status(200).json(task);
   } catch (err) {
     next(err);
   }
@@ -59,9 +59,9 @@ router.get("/tasks/:id", checkJwt, async (req, res, next) => {
 router.get("/lists/:id", checkJwt, async (req, res, next) => {
   try {
     const userId = req.auth.payload.sub;
-    const id = req.params.id;
-    const list = await getList.getList(userId, id);
-    return res.json(list);
+    const listId = req.params.id;
+    const list = await getList.getList(userId, listId);
+    return res.status(200).json(list);
   } catch (err) {
     next(err);
   }
@@ -70,9 +70,9 @@ router.get("/lists/:id", checkJwt, async (req, res, next) => {
 router.get("/notes/:id", checkJwt, async (req, res, next) => {
   try {
     const userId = req.auth.payload.sub;
-    const id = req.params.id;
-    const note = await getNote.getNote(userId, id);
-    return res.json(note);
+    const noteId = req.params.id;
+    const note = await getNote.getNote(userId, noteId);
+    return res.status(200).json(note);
   } catch (err) {
     next(err);
   }
@@ -82,10 +82,10 @@ router.get("/notes/:id", checkJwt, async (req, res, next) => {
 
 router.post("/tasks", checkJwt, async (req, res, next) => {
   try {
-    const userId = req.auth.payload.sub;
-    const taskData = req.body;
-    const task = await createTask.createTask(userId, taskData);
-    return res.json(task);
+    const { body, auth } = req;
+    const taskBody = { userId: auth.payload.sub, ...body };
+    const task = await createTask.createTask(taskBody);
+    return res.status(201).json(task);
   } catch (err) {
     next(err);
   }
@@ -93,10 +93,10 @@ router.post("/tasks", checkJwt, async (req, res, next) => {
 
 router.post("/lists", checkJwt, async (req, res, next) => {
   try {
-    const userId = req.auth.payload.sub;
-    const listData = req.body;
-    const list = await createList.createList(userId, listData);
-    return res.json(list);
+    const { body, auth } = req;
+    const listBody = { userId: auth.payload.sub, ...body };
+    const list = await createList.createList(listBody);
+    return res.status(201).json(list);
   } catch (err) {
     next(err);
   }
@@ -104,10 +104,10 @@ router.post("/lists", checkJwt, async (req, res, next) => {
 
 router.post("/notes", checkJwt, async (req, res, next) => {
   try {
-    const userId = req.auth.payload.sub;
-    const noteData = req.body;
-    const note = await createNote.createNote(userId, noteData);
-    return res.json(note);
+    const { body, auth } = req;
+    const noteBody = { userId: auth.payload.sub, ...body };
+    const note = await createNote.createNote(noteBody);
+    return res.status(201).json(note);
   } catch (err) {
     next(err);
   }

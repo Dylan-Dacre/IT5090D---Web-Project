@@ -1,15 +1,15 @@
+const Task = require("./schema/taskSchema");
+const List = require("./schema/listSchema");
+const Note = require("./schema/noteSchema");
 const db = require("./db");
+db.connect();
 
 module.exports = {
   // Get all items
 
   getTasks: async (userId) => {
     try {
-      const database = await db.connect();
-      const tasks = await database
-        .collection("Tasks")
-        .find({ userId })
-        .toArray();
+      const tasks = await Task.find({ userId });
       return tasks;
     } catch (err) {
       throw new Error(err);
@@ -18,11 +18,7 @@ module.exports = {
 
   getLists: async (userId) => {
     try {
-      const database = await db.connect();
-      const lists = await database
-        .collection("Lists")
-        .find({ userId })
-        .toArray();
+      const lists = await List.find({ userId });
       return lists;
     } catch (err) {
       throw new Error(err);
@@ -31,11 +27,7 @@ module.exports = {
 
   getNotes: async (userId) => {
     try {
-      const database = await db.connect();
-      const notes = await database
-        .collection("Notes")
-        .find({ userId })
-        .toArray();
+      const notes = await Note.find({ userId });
       return notes;
     } catch (err) {
       throw new Error(err);
@@ -44,39 +36,27 @@ module.exports = {
 
   // Get an item by id
 
-  getTask: async (userId, id) => {
+  getTask: async (userId, taskId) => {
     try {
-      const database = await db.connect();
-      const task = await database
-        .collection("Tasks")
-        .find({ userId, id })
-        .toArray();
+      const task = await Task.findOne({ userId, _id: taskId });
       return task;
     } catch (err) {
       throw new Error(err);
     }
   },
 
-  getList: async (userId, id) => {
+  getList: async (userId, listId) => {
     try {
-      const database = await db.connect();
-      const list = await database
-        .collection("Lists")
-        .find({ userId, id })
-        .toArray();
+      const list = await List.findOne({ userId, _id: listId });
       return list;
     } catch (err) {
       throw new Error(err);
     }
   },
 
-  getNote: async (userId, id) => {
+  getNote: async (userId, noteId) => {
     try {
-      const database = await db.connect();
-      const note = await database
-        .collection("Notes")
-        .find({ userId, id })
-        .toArray();
+      const note = await Note.findOne({ userId, _id: noteId });
       return note;
     } catch (err) {
       throw new Error(err);
@@ -85,55 +65,31 @@ module.exports = {
 
   // Create an item
 
-  createTask: async (userId, taskData) => {
+  createTask: async (taskBody) => {
     try {
-      const database = await db.connect();
-      const result = await database.collection("Tasks").insertOne({
-        userId,
-        taskData,
-      });
-
-      if (result.insertedCount === 1) {
-        return { success: true, taskId: result.insertedId };
-      } else {
-        return { success: false, error: "Task creation failed" };
-      }
+      const task = new Task(taskBody);
+      const savedTask = await task.save();
+      return savedTask;
     } catch (err) {
       throw new Error(err);
     }
   },
 
-  createList: async (userId, listData) => {
+  createList: async (listBody) => {
     try {
-      const database = await db.connect();
-      const result = await database.collection("Lists").insertOne({
-        userId,
-        listData,
-      });
-
-      if (result.insertedCount === 1) {
-        return { success: true, listId: result.insertedId };
-      } else {
-        return { success: false, error: "List creation failed" };
-      }
+      const list = new List(listBody);
+      const savedList = await list.save();
+      return savedList;
     } catch (err) {
       throw new Error(err);
     }
   },
 
-  createNote: async (userId, noteData) => {
+  createNote: async (noteBody) => {
     try {
-      const database = await db.connect();
-      const result = await database.collection("Notes").insertOne({
-        userId,
-        noteData,
-      });
-
-      if (result.insertedCount === 1) {
-        return { success: true, noteId: result.insertedId };
-      } else {
-        return { success: false, error: "Note creation failed" };
-      }
+      const note = new Note(noteBody);
+      const savedNote = await note.save();
+      return savedNote;
     } catch (err) {
       throw new Error(err);
     }

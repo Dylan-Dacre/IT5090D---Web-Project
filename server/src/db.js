@@ -1,29 +1,25 @@
-const { MongoClient } = require("mongodb");
+const mongoose = require("mongoose");
 
-const connectionString = "mongodb://localhost:27017/xxx";
-
-let db;
+const connectionString = "mongodb://localhost:27017/data";
 
 async function connect() {
-  if (!db) {
-    const client = new MongoClient(connectionString, {
+  try {
+    await mongoose.connect(connectionString, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-
-    try {
-      await client.connect();
-      db = client.db();
-      console.log("Connected to MongoDB");
-    } catch (err) {
-      console.error("Error connecting to MongoDB:", err);
-      throw err;
-    }
+    console.log("Connected to MongoDB");
+  } catch (err) {
+    console.error("Error connecting to MongoDB:", err);
+    throw err;
   }
+}
 
-  return db;
+function disconnect() {
+  return mongoose.disconnect();
 }
 
 module.exports = {
   connect,
+  disconnect,
 };
