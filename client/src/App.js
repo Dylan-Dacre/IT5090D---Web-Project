@@ -1,7 +1,7 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
-import ProtectedRoute from "./auth/protected-route";
+import ProtectedRoute from "./auth/ProtectedRoute";
 import Home from "./components/Home";
 import Faq from "./components/Faq";
 import Contact from "./components/Contact";
