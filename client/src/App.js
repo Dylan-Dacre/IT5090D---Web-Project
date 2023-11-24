@@ -2,6 +2,8 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import ProtectedRoute from "./auth/ProtectedRoute";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Faq from "./components/Faq";
 import Contact from "./components/Contact";
@@ -18,7 +20,8 @@ const App = () => {
 
   return (
     <>
-      <div className="container">
+      <div className="app-container">
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/faq" element={<Faq />} />
@@ -36,6 +39,7 @@ const App = () => {
             <Route index element={<Notes />} />
           </Route>
         </Routes>
+        <Footer />
       </div>
     </>
   );

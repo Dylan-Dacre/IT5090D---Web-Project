@@ -1,0 +1,21 @@
+.home {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+}
+
+h1 {
+  font-size: 4rem;
+  text-align: center;
+  color: #333;
+}
+
+p {
+  font-size: 1.1rem;
+  font-style: italic;
+  text-align: center;
+  margin: 4rem 0 10rem;
+  color: #333;
+  max-width: 40rem;
+}
