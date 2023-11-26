@@ -1,0 +1,47 @@
+.calendar {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.days-of-week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.days-of-week > div {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.days > div {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #c7c7c7c5;
+  padding: 0.625rem;
+  border-bottom: 0.0625rem solid;
+}
+
+.current-day {
+  position: relative;
+}
+
+.current-day:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.27rem;
+  height: 0.1rem;
+  background-color: #fff;
+  border: 0.2rem solid #f10606;
+  border-radius: 0.75rem;
+}

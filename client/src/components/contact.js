@@ -6,7 +6,7 @@ const Contact = () => {
       <div className="contact-header">
         <h1>Contact</h1>
         <p className="contact-description">
-          This is the contact page. It's a static page that anyone can view.
+          Send us a message. I swear we'll read it!
         </p>
       </div>
       <div className="contact-form">

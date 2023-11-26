@@ -2,9 +2,8 @@ import "./Notes.css";
 
 const Notes = () => {
   return (
-    <div className="notes">
+    <div className="notes-container">
       <h1>Notes</h1>
-      <p>This is the notes page. It's a protected route.</p>
     </div>
   );
 };

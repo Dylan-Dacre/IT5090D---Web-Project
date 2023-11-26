@@ -53,7 +53,9 @@ const Faq = () => {
     <div className="faq-container">
       <div className="faq-header">
         <h1>Frequently Asked Questions</h1>
-        <p className="faq-description">Answers to frequently asked questions</p>
+        <p className="faq-description">
+          Answers to frequently asked questions.
+        </p>
       </div>
       <div className="faqs">
         <ul>

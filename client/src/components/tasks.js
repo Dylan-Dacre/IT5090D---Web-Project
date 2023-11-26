@@ -2,9 +2,8 @@ import "./Tasks.css";
 
 const Tasks = () => {
   return (
-    <div className="tasks">
+    <div className="tasks-container">
       <h1>Tasks</h1>
-      <p>This is the tasks page. It's a protected route.</p>
     </div>
   );
 };

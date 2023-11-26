@@ -2,9 +2,8 @@ import "./Lists.css";
 
 const Lists = () => {
   return (
-    <div className="lists">
+    <div className="lists-container">
       <h1>Lists</h1>
-      <p>This is the lists page. It's a protected route.</p>
     </div>
   );
 };

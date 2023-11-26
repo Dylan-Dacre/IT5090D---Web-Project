@@ -1,0 +1,54 @@
+.dashboard-container {
+  margin-top: 3rem;
+}
+
+.dashboard-container h1 {
+  font-size: 3rem;
+  text-align: center;
+  color: #333;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.0625rem solid;
+  border-image: linear-gradient(to right, transparent, #c7c7c7c5, transparent);
+  border-image-slice: 1;
+}
+
+.weather-container {
+  margin-top: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.calendar-container {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.links-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 0.0625rem solid;
+  border-image: linear-gradient(to right, transparent, #c7c7c7c5, transparent);
+  border-image-slice: 1;
+}
+
+.links-container button {
+  width: 20rem;
+  height: 3rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 0.35rem;
+  background-color: #007bff;
+  cursor: pointer;
+}
+
+.links-container button:hover {
+  background-color: #0069d9;
+}

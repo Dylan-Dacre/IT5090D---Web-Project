@@ -1,0 +1,11 @@
+.weather {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  width: 70%;
+}
+
+.icon-weather {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #333;
+}

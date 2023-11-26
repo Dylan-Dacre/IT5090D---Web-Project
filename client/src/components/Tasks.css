@@ -1,0 +1,13 @@
+.tasks-container {
+  margin-top: 3rem;
+}
+
+.tasks-container h1 {
+  font-size: 3rem;
+  text-align: center;
+  color: #333;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.0625rem solid;
+  border-image: linear-gradient(to right, transparent, #c7c7c7c5, transparent);
+  border-image-slice: 1;
+}
