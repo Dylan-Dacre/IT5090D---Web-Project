@@ -1,6 +1,6 @@
-const Task = require("./schema/taskSchema");
-const List = require("./schema/listSchema");
-const Note = require("./schema/noteSchema");
+const Task = require("../models/taskModel");
+const List = require("../models/listModel");
+const Note = require("../models/noteModel");
 const db = require("./db");
 db.connect();
 
@@ -9,7 +9,7 @@ module.exports = {
 
   getTasks: async (userId) => {
     try {
-      const tasks = await Task.find({ userId });
+      const tasks = await Task.find({ userId: userId, completed: false });
       return tasks;
     } catch (err) {
       throw new Error(err);
@@ -18,7 +18,7 @@ module.exports = {
 
   getLists: async (userId) => {
     try {
-      const lists = await List.find({ userId });
+      const lists = await List.find({ userId: userId });
       return lists;
     } catch (err) {
       throw new Error(err);
@@ -27,7 +27,7 @@ module.exports = {
 
   getNotes: async (userId) => {
     try {
-      const notes = await Note.find({ userId });
+      const notes = await Note.find({ userId: userId });
       return notes;
     } catch (err) {
       throw new Error(err);

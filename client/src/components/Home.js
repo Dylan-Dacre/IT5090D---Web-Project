@@ -1,5 +1,5 @@
 import "./Home.css";
-import LoginButton from "./LoginButton";
+import LoginButton from "../utils/LoginButton";
 import getRandomQuote from "../utils/RandomQuote";
 
 const Home = () => {

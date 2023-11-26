@@ -7,6 +7,7 @@ const taskSchema = new Schema({
   title: { type: String, required: true },
   description: { type: String, required: false },
   subtasks: { type: Array, required: false },
+  subtasksCompleted: { type: Array, required: false },
   completed: { type: Boolean, required: true },
 });
 

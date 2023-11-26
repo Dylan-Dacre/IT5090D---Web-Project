@@ -13,11 +13,12 @@ const { checkJwt } = require("../middleware/authorizationMiddleware");
 
 // Get all items
 
-router.get("/tasks", checkJwt, async (req, res, next) => {
+router.get("/tasks/", checkJwt, async (req, res, next) => {
   try {
     const userId = req.auth.payload.sub;
     const tasks = await getTasks.getTasks(userId);
-    return res.status(200).json(tasks);
+    const tasksArray = Array.isArray(tasks) ? tasks : [tasks];
+    return res.status(200).json(tasksArray);
   } catch (err) {
     next(err);
   }
