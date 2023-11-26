@@ -3,7 +3,7 @@
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
   padding: 0.5rem 8rem 0;
   border-top: 0.0625rem solid;
   border-image: linear-gradient(to right, transparent, #c7c7c7c5, transparent);

@@ -1,0 +1,27 @@
+.header-container {
+  padding-top: 0.5rem;
+  position: relative;
+}
+
+.home-button,
+.menu-button {
+  background-color: transparent;
+  font-size: 1.25rem;
+  position: absolute;
+  color: #333;
+}
+
+.home-button {
+  left: 0;
+}
+
+.menu-button {
+  left: 2rem;
+}
+
+.header-title {
+  margin: 0 auto;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+}

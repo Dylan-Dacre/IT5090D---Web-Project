@@ -1,5 +1,6 @@
 .app-container {
+  width: 95%;
   max-width: 40rem;
-  height: 100vh;
+  height: 100%;
   margin: 0 auto;
 }

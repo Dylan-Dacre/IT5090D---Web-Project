@@ -3,15 +3,16 @@
   top: 30%;
   left: 50%;
   transform: translate(-50%, -30%);
+  min-width: 22rem;
 }
 
-h1 {
+.home h1 {
   font-size: 4rem;
   text-align: center;
   color: #333;
 }
 
-p {
+.home p {
   font-size: 1.1rem;
   font-style: italic;
   text-align: center;

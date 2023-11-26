@@ -1,0 +1,54 @@
+.faq-container {
+  margin-top: 3rem;
+}
+
+.faq-container h1 {
+  font-size: 3rem;
+  text-align: center;
+  color: #333;
+}
+
+.faq-description {
+  font-size: 1.1rem;
+  text-align: center;
+  color: #333;
+  margin-top: 1rem;
+}
+
+.faq-header {
+  padding-bottom: 1rem;
+  border-bottom: 0.0625rem solid;
+  border-image: linear-gradient(to right, transparent, #c7c7c7c5, transparent);
+  border-image-slice: 1;
+}
+
+.faqs {
+  margin-top: 3rem;
+}
+
+.faqs li {
+  list-style: none;
+  margin-top: 1.25rem;
+  text-align: center;
+}
+
+.faqs button {
+  background: none;
+  font-size: 1.2rem;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.faqs button:hover,
+.faqs button.active {
+  color: #007bff;
+}
+
+.icon-arrow {
+  margin-left: 2rem;
+}
+
+.faq-answer {
+  margin-top: 0.2rem;
+  font-style: italic;
+}
