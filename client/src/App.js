@@ -10,6 +10,7 @@ import Contact from "./components/Contact";
 import Tasks from "./components/Tasks";
 import Lists from "./components/Lists";
 import Notes from "./components/Notes";
+import Dashboard from "./components/Dashboard";
 
 const App = () => {
   const { isLoading } = useAuth0();
@@ -26,6 +27,10 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/contact" element={<Contact />} />
+
+          <Route path="/dashboard" element={<ProtectedRoute />}>
+            <Route index element={<Dashboard />} />
+          </Route>
 
           <Route path="/tasks" element={<ProtectedRoute />}>
             <Route index element={<Tasks />} />

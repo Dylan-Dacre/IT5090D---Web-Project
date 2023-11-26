@@ -1,17 +1,18 @@
 import React from "react";
 import "./LoginButton.css";
 import { useAuth0 } from "@auth0/auth0-react";
-import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 const LoginButton = () => {
   const { loginWithRedirect } = useAuth0();
-  const navigate = useNavigate();
 
   const handleLogin = async () => {
-    await loginWithRedirect();
-    navigate("/dashboard");
+    await loginWithRedirect({
+      appState: {
+        returnTo: window.location.pathname === "/" ? "/dashboard" : undefined,
+      },
+    });
   };
 
   return (

@@ -16,7 +16,7 @@ const Header = () => {
   const isHomePage = location.pathname === "/";
   const isMenuPage =
     !isHomePage &&
-    ["/dashboarrd", "/tasks", "/lists", "/notes"].includes(location.pathname);
+    ["/dashboard", "/tasks", "/lists", "/notes"].includes(location.pathname);
   const renderHeader = !isHomePage || isMenuPage;
 
   return renderHeader ? (
