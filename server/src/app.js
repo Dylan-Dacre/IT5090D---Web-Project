@@ -5,7 +5,7 @@ const router = require("./router");
 const api = require("../api/api");
 const swaggerUi = require("swagger-ui-express");
 const { checkJwt } = require("../middleware/authorizationMiddleware");
-const errorHandler = require("../middleware/errorHandleringMiddleware");
+const errorHandler = require("../middleware/errorHandlingMiddleware");
 
 app.use(cors());
 app.use(express.json());
@@ -18,4 +18,4 @@ app.use("/", swaggerUi.serve, swaggerUi.setup(api));
 
 app.use(errorHandler);
 
-moodule.exports = app;
+module.exports = app;

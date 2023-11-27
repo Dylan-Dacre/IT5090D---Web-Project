@@ -3,9 +3,9 @@ import { Auth0Provider } from "@auth0/auth0-react";
 
 const Auth0ProviderWithHistory = ({ children }) => {
   const navigate = useNavigate();
-  const domain = process.env.REACT_APP_AUTH0_DOMAIN;
-  const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
-  const audience = process.env.REACT_APP_AUTH0_AUDIENCE;
+  const domain = "dev-gx32ay1mp1zopqmb.us.auth0.com";
+  const clientId = "bMTFH85qLerGmhFvKCRJaVemf9TtvPtl";
+  const audience = "https://xxx.co.nz";
 
   const onRedirectCallback = (appState) => {
     if (appState?.returnTo === "/dashboard") {
@@ -19,9 +19,9 @@ const Auth0ProviderWithHistory = ({ children }) => {
     <Auth0Provider
       domain={domain}
       clientId={clientId}
+      audience={audience}
       redirectUri={window.location.origin}
       onRedirectCallback={onRedirectCallback}
-      audience={audience}
     >
       {children}
     </Auth0Provider>
