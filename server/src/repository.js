@@ -38,7 +38,7 @@ module.exports = {
 
   getTask: async (userId, taskId) => {
     try {
-      const task = await Task.findOne({ userId, _id: taskId });
+      const task = await Task.findOne({ userId: userId, _id: taskId });
       return task;
     } catch (err) {
       throw new Error(err);
@@ -47,7 +47,7 @@ module.exports = {
 
   getList: async (userId, listId) => {
     try {
-      const list = await List.findOne({ userId, _id: listId });
+      const list = await List.findOne({ userId: userId, _id: listId });
       return list;
     } catch (err) {
       throw new Error(err);
@@ -56,7 +56,7 @@ module.exports = {
 
   getNote: async (userId, noteId) => {
     try {
-      const note = await Note.findOne({ userId, _id: noteId });
+      const note = await Note.findOne({ userId: userId, _id: noteId });
       return note;
     } catch (err) {
       throw new Error(err);
@@ -90,6 +90,76 @@ module.exports = {
       const note = new Note(noteBody);
       const savedNote = await note.save();
       return savedNote;
+    } catch (err) {
+      throw new Error(err);
+    }
+  },
+
+  // Update an item
+
+  updateTask: async (userId, taskId, taskBody) => {
+    try {
+      const task = await Task.findOneAndUpdate(
+        { userId: userId, _id: taskId },
+        taskBody,
+        { new: true }
+      );
+      return task;
+    } catch (err) {
+      throw new Error(err);
+    }
+  },
+
+  updateList: async (userId, listId, listBody) => {
+    try {
+      const list = await List.findOneAndUpdate(
+        { userId: userId, _id: listId },
+        listBody,
+        { new: true }
+      );
+      return list;
+    } catch (err) {
+      throw new Error(err);
+    }
+  },
+
+  updateNote: async (userId, noteId, noteBody) => {
+    try {
+      const note = await Note.findOneAndUpdate(
+        { userId: userId, _id: noteId },
+        noteBody,
+        { new: true }
+      );
+      return note;
+    } catch (err) {
+      throw new Error(err);
+    }
+  },
+
+  // Delete an item
+
+  deleteTask: async (userId, taskId) => {
+    try {
+      const task = await Task.findOneAndDelete({ userId: userId, _id: taskId });
+      return task;
+    } catch (err) {
+      throw new Error(err);
+    }
+  },
+
+  deleteList: async (userId, listId) => {
+    try {
+      const list = await List.findOneAndDelete({ userId: userId, _id: listId });
+      return list;
+    } catch (err) {
+      throw new Error(err);
+    }
+  },
+
+  deleteNote: async (userId, noteId) => {
+    try {
+      const note = await Note.findOneAndDelete({ userId: userId, _id: noteId });
+      return note;
     } catch (err) {
       throw new Error(err);
     }

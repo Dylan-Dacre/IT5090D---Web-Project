@@ -11,3 +11,43 @@
   border-image: linear-gradient(to right, transparent, #c7c7c7c5, transparent);
   border-image-slice: 1;
 }
+
+.task-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.task-list ul {
+  width: 80%;
+  list-style: none;
+  text-align: center;
+}
+
+.task-list li {
+  width: 100%;
+  border: 0.0625rem solid #c7c7c7c5;
+  border-radius: 1rem;
+  background-color: #fff;
+  margin-bottom: 1rem;
+}
+
+.icon-trash,
+.icon-pen,
+.icon-complete {
+  background-color: transparent;
+  padding: 0.5rem;
+  position: relative;
+  bottom: -1rem;
+}
+
+.new-task {
+  margin: 2rem auto;
+  font-size: 3rem;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  background-color: transparent;
+}
