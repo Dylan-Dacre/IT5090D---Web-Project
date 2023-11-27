@@ -6,6 +6,8 @@ const Auth0ProviderWithHistory = ({ children }) => {
   const domain = "dev-gx32ay1mp1zopqmb.us.auth0.com";
   const clientId = "bMTFH85qLerGmhFvKCRJaVemf9TtvPtl";
   const audience = "https://xxx.co.nz";
+  const redirectUri = window.location.origin;
+  const authorizationParams = { audience: audience, redirectUri: redirectUri };
 
   const onRedirectCallback = (appState) => {
     if (appState?.returnTo === "/dashboard") {
@@ -19,8 +21,7 @@ const Auth0ProviderWithHistory = ({ children }) => {
     <Auth0Provider
       domain={domain}
       clientId={clientId}
-      audience={audience}
-      redirectUri={window.location.origin}
+      authorizationParams={authorizationParams}
       onRedirectCallback={onRedirectCallback}
     >
       {children}

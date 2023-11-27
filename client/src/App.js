@@ -7,9 +7,9 @@ import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Faq from "./components/Faq";
 import Contact from "./components/Contact";
-import Tasks from "./components/Tasks";
-import Lists from "./components/Lists";
-import Notes from "./components/Notes";
+import Tasks from "./components/tasks/Tasks";
+import Lists from "./components/lists/Lists";
+import Notes from "./components/notes/Notes";
 import Dashboard from "./components/Dashboard";
 
 const App = () => {
