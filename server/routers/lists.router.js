@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const getNotes = require("./repository");
-const createNote = require("./repository");
+const getLists = require("../src/repository");
+const createList = require("../src/repository");
 const { checkJwt } = require("../middleware/authorizationMiddleware");
 
 // Get all items
@@ -9,9 +9,9 @@ const { checkJwt } = require("../middleware/authorizationMiddleware");
 router.get("/", checkJwt, async (req, res, next) => {
   try {
     const userId = req.auth.payload.sub;
-    const notes = await getNotes.getNotes(userId);
-    const notesArray = Array.isArray(notes) ? notes : [notes];
-    return res.status(200).json(notesArray);
+    const lists = await getLists.getLists(userId);
+    const listsArray = Array.isArray(lists) ? lists : [lists];
+    return res.status(200).json(listsArray);
   } catch (err) {
     next(err);
   }
@@ -23,9 +23,9 @@ router.post("/", async (req, res, next) => {
   try {
     const userId = req.auth.payload.sub;
     const body = req.body;
-    const noteBody = { ...body, userId };
-    const note = await createNote.createNote(noteBody);
-    return res.status(201).json(note);
+    const listBody = { ...body, userId };
+    const list = await createList.createList(listBody);
+    return res.status(201).json(list);
   } catch (err) {
     next(err);
   }

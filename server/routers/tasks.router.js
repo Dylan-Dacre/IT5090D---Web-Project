@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const getTasks = require("./repository");
-const getTask = require("./repository");
-const createTask = require("./repository");
-const editTask = require("./repository");
-const deleteTask = require("./repository");
+const getTasks = require("../src/repository");
+const getTask = require("../src/repository");
+const createTask = require("../src/repository");
+const editTask = require("../src/repository");
+const deleteTask = require("../src/repository");
 const { checkJwt } = require("../middleware/authorizationMiddleware");
 
 // Get all items
