@@ -20,8 +20,13 @@ A web application built on the MERN stack that allows users to create, edit and 
 
 - Clone the repository
 - Setup a MongoDB database with a collection called 'tasks', 'lists' and 'notes'. Make sure the database is running on port **27017**! (Recommended to use a Docker container)
-- Open a terminal in the client directory and run `npm install`
-- Once the install has complete run `npm start` in the client directory
-- Open a terminal in the server directory and run `npm start`
+- Open a terminal and navigate to the root directory of the project
+- Run `npm install` to install the dependencies
+- Open a terminal and navigate to the client directory
+- Run `npm install` to install the dependencies
+- Run `npm start` to start the client
+- Open a terminal and navigate to the server directory
+- Run `npm install` to install the dependencies
+- Run `npm start` to start the server
 - Open a browser and navigate to `localhost:3000`
 - Enjoy!
