@@ -50,7 +50,7 @@
 
 .login-button:hover {
   border-radius: 0.25rem;
-  background-color: #afaeae;
+  background-color: #007bff;
 }
 
 .login-button:hover .icon-user {

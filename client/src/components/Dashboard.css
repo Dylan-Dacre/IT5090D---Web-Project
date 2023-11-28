@@ -45,10 +45,10 @@
   font-weight: 600;
   color: #fff;
   border-radius: 0.35rem;
-  background-color: #007bff;
+  background-color: #ccc;
   cursor: pointer;
 }
 
 .links-container button:hover {
-  background-color: #0069d9;
+  background-color: #007bff;
 }

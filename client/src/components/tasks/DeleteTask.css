@@ -1,0 +1,48 @@
+.delete-task-container {
+  width: 90%;
+  max-width: 40rem;
+  position: absolute;
+  top: 18%;
+  background-color: #c7c7c7;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.3);
+}
+
+.delete-task-container h2 {
+  font-size: 2rem;
+  text-align: center;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.delete-task-container p {
+  font-size: 1.1rem;
+  text-align: center;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.del-controls {
+  display: flex;
+  justify-content: center;
+}
+
+.del-close,
+.del-delete {
+  color: #333;
+  font-size: 1.3rem;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0.5rem 1.5rem 0;
+}
+
+.del-delete:hover {
+  color: #f10606;
+}
+
+.del-close:hover {
+  color: #007bff;
+}

@@ -1,9 +1,9 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const tasksRouter = require("./tasks.router");
-const listsRouter = require("./lists.router");
-const notesRouter = require("./notes.router");
+const tasksRouter = require("../routers/tasks.router");
+const listsRouter = require("../routers/lists.router");
+const notesRouter = require("../routers/notes.router");
 const { checkJwt } = require("../middleware/authorizationMiddleware");
 const errorHandler = require("../middleware/errorHandlingMiddleware");
 

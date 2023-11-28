@@ -20,18 +20,58 @@
   margin-top: 2rem;
 }
 
-.task-list ul {
+.main-list {
   width: 80%;
   list-style: none;
   text-align: center;
 }
 
-.task-list li {
+.main-task {
   width: 100%;
   border: 0.0625rem solid #c7c7c7c5;
   border-radius: 1rem;
   background-color: #fff;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.subtask-list {
+  list-style: none;
+}
+
+.description {
+  max-width: 20rem;
+  width: 80%;
+  font-size: 1.1rem;
+  padding: 0.2rem 0 0.75rem;
+  margin: 0 auto 2rem;
+  border-bottom: 0.0625rem solid;
+  border-image: linear-gradient(to right, transparent, #c7c7c7c5, transparent);
+  border-image-slice: 1;
+  word-wrap: break-word;
+}
+
+.subtask {
+  padding: 0.5rem 0.5rem 0.7rem 0.5rem;
+  width: 90%;
+  border: 0.0625rem solid #c7c7c7c5;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  margin: 0 auto 2rem;
+  word-wrap: break-word;
+  position: relative;
+}
+
+.controls {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -1.2rem;
+  width: fit-content;
+  border: 0.0625rem solid;
+  border-image: linear-gradient(to bottom, #c7c7c7c5, transparent);
+  border-image-slice: 1;
+  background-color: whitesmoke;
 }
 
 .icon-trash,
@@ -39,8 +79,32 @@
 .icon-complete {
   background-color: transparent;
   padding: 0.5rem;
-  position: relative;
-  bottom: -1rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.subtask-complete {
+  bottom: -1.2rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: transparent;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.icon-trash:hover {
+  color: #f10606;
+}
+
+.icon-pen:hover {
+  color: #007bff;
+}
+
+.subtask-complete:hover,
+.icon-complete:hover {
+  color: #00b300;
 }
 
 .new-task {
@@ -50,4 +114,8 @@
   cursor: pointer;
   display: flex;
   background-color: transparent;
+}
+
+.new-task:hover {
+  color: #007bff;
 }

@@ -18,7 +18,7 @@ const CreateTask = ({ onClose }) => {
       setNewTask((prev) => ({
         ...prev,
         subtasks: prev.subtasks.map((subtask, index) =>
-          index === subtaskIndex ? { ...subtask, description: value } : subtask
+          index === subtaskIndex ? { ...subtask, title: value } : subtask
         ),
       }));
     } else {
@@ -36,7 +36,15 @@ const CreateTask = ({ onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const taskToCreate = { ...newTask, completed: false };
+    const nonBlankSubtasks = newTask.subtasks.filter(
+      (subtask) => subtask.title !== ""
+    );
+
+    const taskToCreate = {
+      ...newTask,
+      subtasks: nonBlankSubtasks,
+      completed: false,
+    };
 
     try {
       const response = await fetch("http://localhost:5001/api/tasks", {
@@ -87,7 +95,7 @@ const CreateTask = ({ onClose }) => {
                 type="text"
                 id={`subtask-${index}`}
                 name="subtasks"
-                value={subtask.description}
+                value={subtask.title}
                 onChange={(e) => handleChange(e, index)}
               />
             </div>

@@ -12,6 +12,11 @@
   cursor: pointer;
 }
 
+.home-button:hover,
+.menu-button:hover {
+  color: #007bff;
+}
+
 .home-button {
   left: 0;
 }
@@ -36,6 +41,7 @@
   display: flex;
   flex-direction: column;
   z-index: 1;
+  border-radius: 0.25rem;
 }
 
 .dropdown button {
@@ -46,7 +52,10 @@
   cursor: pointer;
 }
 
-.dropdown button:hover,
 .dropdown button.active {
   background-color: #f0f0f0;
+}
+
+.dropdown button:hover {
+  background-color: #ccc;
 }

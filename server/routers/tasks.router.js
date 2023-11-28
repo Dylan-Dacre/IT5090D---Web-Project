@@ -3,7 +3,7 @@ const router = express.Router();
 const getTasks = require("../src/repository");
 const getTask = require("../src/repository");
 const createTask = require("../src/repository");
-const editTask = require("../src/repository");
+const updateTask = require("../src/repository");
 const deleteTask = require("../src/repository");
 const { checkJwt } = require("../middleware/authorizationMiddleware");
 
@@ -55,7 +55,7 @@ router.put("/:id", async (req, res, next) => {
     const taskId = req.params.id;
     const body = req.body;
     const taskBody = { ...body, userId };
-    const task = await editTask.editTask(userId, taskId, taskBody);
+    const task = await updateTask.updateTask(userId, taskId, taskBody);
     return res.status(201).json(task);
   } catch (err) {
     next(err);
