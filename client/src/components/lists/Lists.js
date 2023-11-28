@@ -110,7 +110,7 @@ const Lists = () => {
           ))}
         </ul>
       </div>
-      <button className="new-task" onClick={openCreateList}>
+      <button className="new-list" onClick={openCreateList}>
         <span>
           <FontAwesomeIcon icon={faCirclePlus} />
         </span>
