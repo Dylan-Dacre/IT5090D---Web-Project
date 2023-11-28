@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import "./CreateTask.css";
+import "./EditTask.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleCheck,
   faCircleXmark,
+  faCirclePlus,
+  faCircleMinus,
 } from "@fortawesome/free-solid-svg-icons";
 
 const EditTask = ({ task, onClose }) => {
@@ -24,9 +26,6 @@ const EditTask = ({ task, onClose }) => {
           body: JSON.stringify(editedTask),
         }
       );
-
-      console.log("Edit response: ", response);
-
       if (response.ok) {
         console.log("Task edited successfully");
       } else {
@@ -76,56 +75,66 @@ const EditTask = ({ task, onClose }) => {
   return (
     <div className="edit-task-container">
       <h2>Edit Task</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Title:
-          <input
-            type="text"
-            name="title"
-            value={editedTask.title}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Description:
-          <textarea
-            name="description"
-            value={editedTask.description}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Subtasks:
-          {editedTask.subtasks.map((subtask, index) => (
-            <div key={index}>
-              <input
-                type="text"
-                name="subtasks"
-                value={subtask.title}
-                onChange={(e) => handleSubtaskChange(e, index)}
-              />
-              <button type="button" onClick={() => handleRemoveSubtask(index)}>
-                Remove Subtask
-              </button>
-            </div>
-          ))}
-        </label>
-        <button type="button" onClick={handleAddSubtask}>
-          Add Subtask
-        </button>
-        <div className="edit-controls">
-          <button className="edit-close" onClick={onClose}>
+      <div className="edit-task-form">
+        <form onSubmit={handleSubmit}>
+          <label>
+            Title:
+            <input
+              type="text"
+              name="title"
+              value={editedTask.title}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Description:
+            <textarea
+              name="description"
+              value={editedTask.description}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Subtasks:
+            {editedTask.subtasks.map((subtask, index) => (
+              <div className="sub-container" key={index}>
+                <input
+                  type="text"
+                  name="subtasks"
+                  value={subtask.title}
+                  onChange={(e) => handleSubtaskChange(e, index)}
+                />
+                <button
+                  className="sub-remove"
+                  type="button"
+                  onClick={() => handleRemoveSubtask(index)}
+                >
+                  <span>
+                    <FontAwesomeIcon icon={faCircleMinus} />
+                  </span>
+                </button>
+              </div>
+            ))}
+          </label>
+          <button className="sub-add" type="button" onClick={handleAddSubtask}>
             <span>
-              <FontAwesomeIcon icon={faCircleXmark} />
+              <FontAwesomeIcon icon={faCirclePlus} />
             </span>
           </button>
-          <button className="edit-edit" type="submit">
-            <span>
-              <FontAwesomeIcon icon={faCircleCheck} />
-            </span>
-          </button>
-        </div>
-      </form>
+          <div className="edit-controls">
+            <button className="edit-close" onClick={onClose}>
+              <span>
+                <FontAwesomeIcon icon={faCircleXmark} />
+              </span>
+            </button>
+            <button className="edit-edit" type="submit">
+              <span>
+                <FontAwesomeIcon icon={faCircleCheck} />
+              </span>
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

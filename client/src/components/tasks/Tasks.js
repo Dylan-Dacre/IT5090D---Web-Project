@@ -4,6 +4,7 @@ import "./Tasks.css";
 import CreateTask from "./CreateTask";
 import EditTask from "./EditTask";
 import DeleteTask from "./DeleteTask";
+import CompleteTask from "./CompleteTask";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCirclePlus,
@@ -20,6 +21,9 @@ const Tasks = () => {
   const [taskToDelete, setTaskToDelete] = useState(null);
   const [isEditTaskVisible, setIsEditTaskVisible] = useState(false);
   const [taskToEdit, setTaskToEdit] = useState(null);
+  const [taskToComplete, setTaskToComplete] = useState(null);
+  const [subtaskIndex, setSubtaskIndex] = useState(null);
+  const [updateTasks, setUpdateTasks] = useState(false);
 
   const fetchData = async () => {
     const response = await fetch("http://localhost:5001/api/tasks", {
@@ -38,10 +42,10 @@ const Tasks = () => {
 
   const closeCreateTask = () => {
     setIsCreateTaskVisible(false);
+    setUpdateTasks(!updateTasks);
   };
 
   const openDeleteTask = (task) => {
-    console.log(task);
     setTaskToDelete(task);
     setIsDeleteTaskVisible(true);
   };
@@ -49,6 +53,7 @@ const Tasks = () => {
   const closeDeleteTask = () => {
     setTaskToDelete(null);
     setIsDeleteTaskVisible(false);
+    setUpdateTasks(!updateTasks);
   };
 
   const openEditTask = (task) => {
@@ -59,12 +64,19 @@ const Tasks = () => {
   const closeEditTask = () => {
     setTaskToEdit(null);
     setIsEditTaskVisible(false);
+    setUpdateTasks(!updateTasks);
+  };
+
+  const completeTask = (task, subtaskIndex) => {
+    setTaskToComplete(task);
+    setSubtaskIndex(subtaskIndex);
+    setUpdateTasks(!updateTasks);
   };
 
   useEffect(() => {
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [updateTasks]);
 
   return (
     <div className="tasks-container">
@@ -87,7 +99,13 @@ const Tasks = () => {
                     }}
                   >
                     {subtask.title}
-                    <button className="subtask-complete">
+                    <button
+                      className="subtask-complete"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        completeTask(task, index);
+                      }}
+                    >
                       <span>
                         <FontAwesomeIcon icon={faCircleCheck} />
                       </span>
@@ -107,7 +125,13 @@ const Tasks = () => {
                     <FontAwesomeIcon icon={faPen} />
                   </span>
                 </button>
-                <button className="icon-complete">
+                <button
+                  className="icon-complete"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    completeTask(task);
+                  }}
+                >
                   <span>
                     <FontAwesomeIcon icon={faCircleCheck} />
                   </span>
@@ -140,6 +164,13 @@ const Tasks = () => {
         <EditTask task={taskToEdit} onClose={closeEditTask} />
       )}
       {isCreateTaskVisible && <CreateTask onClose={closeCreateTask} />}
+      {taskToComplete !== null && (
+        <CompleteTask
+          task={taskToComplete}
+          subtaskIndex={subtaskIndex}
+          onClose={() => setTaskToComplete(null)}
+        />
+      )}
     </div>
   );
 };
