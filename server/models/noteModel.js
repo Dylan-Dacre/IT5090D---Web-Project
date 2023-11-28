@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const noteSchema = new Schema({
   userId: { type: String, required: true },
-  id: { type: String, required: true },
+  id: { type: String, required: false },
   title: { type: String, required: true },
   description: { type: String, required: false },
   image: { type: String, required: false },
