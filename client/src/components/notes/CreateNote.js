@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./CreateNote.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
@@ -42,30 +41,35 @@ const CreateNote = ({ onClose }) => {
   };
 
   return (
-    <div className="create-note-container">
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="title">Title:</label>
-        <input
-          type="text"
-          id="title"
-          name="title"
-          value={newNote.title}
-          onChange={handleCreate}
-        />
-        <label htmlFor="content">Content:</label>
-        <textarea
-          id="content"
-          name="content"
-          value={newNote.content}
-          onChange={handleCreate}
-        />
-        <button type="submit">Submit</button>
-        <button type="button" onClick={onClose}>
-          <span>
-            <FontAwesomeIcon icon={faCircleXmark} />
-          </span>
-        </button>
-      </form>
+    <div className="create-container">
+      <h2>New Note</h2>
+      <div className="create-form">
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="title">Title:</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            value={newNote.title}
+            onChange={handleCreate}
+          />
+          <label htmlFor="content">Content:</label>
+          <textarea
+            id="content"
+            name="content"
+            value={newNote.content}
+            onChange={handleCreate}
+          />
+          <button className="submit" type="submit">
+            Submit
+          </button>
+          <button className="icon-close" type="button" onClick={onClose}>
+            <span>
+              <FontAwesomeIcon icon={faCircleXmark} />
+            </span>
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

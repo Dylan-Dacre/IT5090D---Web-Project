@@ -1,4 +1,3 @@
-import "./DeleteTask.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faCircleXmark } from "@fortawesome/free-solid-svg-icons";
@@ -32,17 +31,17 @@ const DeleteTask = ({ task, onClose }) => {
   };
 
   return (
-    <div className="delete-task-container">
+    <div className="delete-container">
       <h2>Delete Task</h2>
       <p>Are you sure you want to delete this task?</p>
       <div className="del-controls">
-        <button className="del-close" onClick={onClose}>
+        <button className="icon-close" onClick={onClose}>
           <span>
             <FontAwesomeIcon icon={faCircleXmark} />
           </span>
         </button>
         <button
-          className="del-delete"
+          className="icon-trash"
           onClick={(e) => {
             e.preventDefault();
             handleDelete(task);

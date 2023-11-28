@@ -4,3 +4,312 @@
   height: 100%;
   margin: 0 auto;
 }
+
+/*               */
+/* Global Styles */
+/*               */
+
+/* Buttonss */
+
+.submit {
+  background-color: #333;
+  color: #fff;
+  font-size: 1.3rem;
+  padding: 0.65rem 1.5rem;
+  border: none;
+  border-radius: 0.35rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 1rem auto 0;
+  display: block;
+}
+
+.submit:hover {
+  background-color: #007bff;
+}
+
+.icon-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.icon-close:hover {
+  color: #f10606;
+}
+
+.add-sub-item {
+  margin: 0 auto;
+  display: block;
+  cursor: pointer;
+  font-size: 2rem;
+  color: #333;
+  background-color: transparent;
+}
+
+.add-sub-item:hover {
+  color: #007bff;
+}
+
+.new-item {
+  margin: 2rem auto;
+  font-size: 3rem;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  background-color: transparent;
+}
+
+.new-item:hover {
+  color: #007bff;
+}
+
+.icon-trash,
+.icon-pen,
+.icon-complete {
+  background-color: transparent;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.icon-trash:hover {
+  color: #f10606;
+}
+
+.icon-pen:hover {
+  color: #007bff;
+}
+
+.edit-sub {
+  color: #333;
+  font-size: 2.5rem;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0.5rem 1.5rem 0;
+}
+
+.edit-sub:hover {
+  color: #00b300;
+}
+
+/* Delete Styles */
+
+.delete-container {
+  width: 90%;
+  max-width: 40rem;
+  position: absolute;
+  top: 18%;
+  background-color: #c7c7c7;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.3);
+}
+
+.delete-container h2 {
+  font-size: 2rem;
+  text-align: center;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.delete-container p {
+  font-size: 1.1rem;
+  text-align: center;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.del-controls {
+  display: flex;
+  justify-content: center;
+}
+
+.sub-add,
+.sub-remove {
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1.3rem;
+  color: #333;
+  padding: 0.5rem 1.5rem 0;
+}
+
+.sub-add:hover {
+  color: #007bff;
+}
+
+.sub-remove:hover {
+  color: #f10606;
+}
+
+.sub-remove {
+  bottom: -0.72rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.sub-add {
+  margin: 1.5rem auto 2rem;
+  display: block;
+}
+
+/* Main Page Styles */
+
+.content-container {
+  margin-top: 3rem;
+}
+
+.content-container h1 {
+  font-size: 3rem;
+  text-align: center;
+  color: #333;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.0625rem solid;
+  border-image: linear-gradient(to right, transparent, #c7c7c7c5, transparent);
+  border-image-slice: 1;
+}
+
+.list-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.list {
+  width: 80%;
+  list-style: none;
+  text-align: center;
+}
+
+.main-list-item {
+  width: 100%;
+  border: 0.0625rem solid #c7c7c7c5;
+  border-radius: 1rem;
+  background-color: #fff;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.inner-list {
+  list-style: none;
+}
+
+.item-description {
+  max-width: 20rem;
+  width: 80%;
+  font-size: 1.1rem;
+  padding: 0.2rem 0 0.75rem;
+  margin: 0 auto 2rem;
+  border-bottom: 0.0625rem solid;
+  border-image: linear-gradient(to right, transparent, #c7c7c7c5, transparent);
+  border-image-slice: 1;
+  word-wrap: break-word;
+}
+
+.inner-list-item {
+  padding: 0.5rem 0.5rem 0.7rem 0.5rem;
+  width: 90%;
+  border: 0.0625rem solid #c7c7c7c5;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  margin: 0 auto 2rem;
+  word-wrap: break-word;
+  position: relative;
+}
+
+.controls {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -1.2rem;
+  width: fit-content;
+  border: 0.0625rem solid;
+  border-image: linear-gradient(to bottom, #c7c7c7c5, transparent);
+  border-image-slice: 1;
+  background-color: whitesmoke;
+}
+
+/* Edit Styles */
+
+.edit-container {
+  width: 90%;
+  max-width: 40rem;
+  position: absolute;
+  top: 18%;
+  background-color: #c7c7c7;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.3);
+}
+
+.edit-container h2 {
+  font-size: 2rem;
+  text-align: center;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.edit-form input,
+.edit-form textarea {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  border: 0.0625rem solid #a8a8a8dc;
+  border-radius: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.edit-controls {
+  display: flex;
+  justify-content: center;
+}
+
+.sub-container {
+  position: relative;
+}
+
+/* Create Styles */
+
+.create-container {
+  width: 90%;
+  max-width: 40rem;
+  position: absolute;
+  top: 18%;
+  background-color: #c7c7c7;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.3);
+}
+
+.create-container h2 {
+  font-size: 2rem;
+  text-align: center;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.create-form input,
+.create-form textarea {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  border: 0.0625rem solid #a8a8a8dc;
+  border-radius: 0.35rem;
+  margin-bottom: 1rem;
+}

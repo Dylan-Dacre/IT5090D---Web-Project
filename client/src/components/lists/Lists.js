@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import "./Lists.css";
 import CreateList from "./CreateList";
 import EditList from "./EditList";
 import DeleteList from "./DeleteList";
@@ -67,17 +66,17 @@ const Lists = () => {
   }, [updateLists]);
 
   return (
-    <div className="lists-container">
+    <div className="content-container">
       <h1>Lists</h1>
-      <div className="list-list">
-        <ul>
+      <div className="list-container">
+        <ul className="list">
           {lists.map((list) => (
-            <li key={list._id}>
+            <li className="main-list-item" key={list._id}>
               <h2>{list.title}</h2>
-              <p>{list.description}</p>
-              <ul>
+              <p className="item-description">{list.description}</p>
+              <ul className="inner-list">
                 {list.listitems.map((listitem, index) => (
-                  <li key={index}>
+                  <li className="inner-list-item" key={index}>
                     <p>{listitem.title}</p>
                   </li>
                 ))}
@@ -110,7 +109,7 @@ const Lists = () => {
           ))}
         </ul>
       </div>
-      <button className="new-list" onClick={openCreateList}>
+      <button className="new-item" onClick={openCreateList}>
         <span>
           <FontAwesomeIcon icon={faCirclePlus} />
         </span>

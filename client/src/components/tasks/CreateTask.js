@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./CreateTask.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus, faCircleXmark } from "@fortawesome/free-solid-svg-icons";
@@ -69,9 +68,9 @@ const CreateTask = ({ onClose }) => {
   };
 
   return (
-    <div className="create-task-container">
+    <div className="create-container">
       <h2>New Task</h2>
-      <div className="create-task-form">
+      <div className="create-form">
         <form onSubmit={handleSubmit}>
           <label htmlFor="title">Title:</label>
           <input
@@ -101,7 +100,7 @@ const CreateTask = ({ onClose }) => {
             </div>
           ))}
           <button
-            className="add-subtask"
+            className="add-sub-item"
             type="button"
             onClick={handleAddSubtask}
           >

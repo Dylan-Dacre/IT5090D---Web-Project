@@ -79,18 +79,18 @@ const Tasks = () => {
   }, [updateTasks]);
 
   return (
-    <div className="tasks-container">
+    <div className="content-container">
       <h1>Tasks</h1>
-      <div className="task-list">
-        <ul className="main-list">
+      <div className="list-container">
+        <ul className="list">
           {tasks.map((task) => (
-            <li className="main-task" key={task._id}>
-              <h2 className="task-title">{task.title}</h2>
-              <p className="description">{task.description}</p>
-              <ul className="subtask-list">
+            <li className="main-list-item" key={task._id}>
+              <h2>{task.title}</h2>
+              <p className="item-description">{task.description}</p>
+              <ul className="inner-list">
                 {task.subtasks.map((subtask, index) => (
                   <li
-                    className="subtask"
+                    className="inner-list-item"
                     key={index}
                     style={{
                       textDecoration: subtask.completed
@@ -152,7 +152,7 @@ const Tasks = () => {
           ))}
         </ul>
       </div>
-      <button className="new-task" onClick={openCreateTask}>
+      <button className="new-item" onClick={openCreateTask}>
         <span>
           <FontAwesomeIcon icon={faCirclePlus} />
         </span>

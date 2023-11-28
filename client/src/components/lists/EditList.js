@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./EditList.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -75,9 +74,9 @@ const EditList = ({ list, onClose }) => {
   };
 
   return (
-    <div className="edit-list-container">
+    <div className="edit-container">
       <h2>Edit List</h2>
-      <div className="edit-list-form">
+      <div className="edit-form">
         <form onSubmit={handleSubmit}>
           <label htmlFor="title">Title</label>
           <input
@@ -94,43 +93,37 @@ const EditList = ({ list, onClose }) => {
             onChange={handleChange}
           />
           <label htmlFor="listitems">List Items</label>
-          <div className="edit-list-listitems">
-            {editedList.listitems.map((listitem, index) => (
-              <div key={index} className="edit-list-listitem">
-                <input
-                  type="text"
-                  name="listitems"
-                  value={listitem.title}
-                  onChange={(e) => handleListitemChange(e, index)}
-                />
-                <button
-                  type="button"
-                  className="edit-list-listitem-remove"
-                  onClick={() => handleRemoveListitem(index)}
-                >
-                  <span>
-                    <FontAwesomeIcon icon={faCircleMinus} />
-                  </span>
-                </button>
-              </div>
-            ))}
-          </div>
-          <button
-            type="button"
-            className="edit-list-listitem-add"
-            onClick={handleAddListitem}
-          >
+          {editedList.listitems.map((listitem, index) => (
+            <div key={index} className="sub-container">
+              <input
+                type="text"
+                name="listitems"
+                value={listitem.title}
+                onChange={(e) => handleListitemChange(e, index)}
+              />
+              <button
+                type="button"
+                className="sub-remove"
+                onClick={() => handleRemoveListitem(index)}
+              >
+                <span>
+                  <FontAwesomeIcon icon={faCircleMinus} />
+                </span>
+              </button>
+            </div>
+          ))}
+          <button type="button" className="sub-add" onClick={handleAddListitem}>
             <span>
               <FontAwesomeIcon icon={faCirclePlus} />
             </span>
           </button>
-          <div className="edit-list-controls">
-            <button className="edit-list-close" onClick={onClose}>
+          <div className="edit-controls">
+            <button className="icon-close" onClick={onClose}>
               <span>
                 <FontAwesomeIcon icon={faCircleXmark} />
               </span>
             </button>
-            <button className="edit-list-submit" type="submit">
+            <button className="edit-sub" type="submit">
               <span>
                 <FontAwesomeIcon icon={faCircleCheck} />
               </span>

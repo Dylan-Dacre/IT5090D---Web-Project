@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import "./Notes.css";
 import CreateNote from "./CreateNote";
 import EditNote from "./EditNote";
 import DeleteNote from "./DeleteNote";
@@ -67,14 +66,14 @@ const Notes = () => {
   }, [updateNotes]);
 
   return (
-    <div className="notes-container">
+    <div className="content-container">
       <h1>Notes</h1>
-      <div className="notes-list">
-        <ul>
+      <div className="list-container">
+        <ul className="list">
           {notes.map((note) => (
-            <li key={note._id}>
+            <li className="main-list-item" key={note._id}>
               <h2>{note.title}</h2>
-              <p>{note.content}</p>
+              <p className="item-description">{note.content}</p>
               <div className="controls">
                 <button
                   className="icon-pen"
@@ -103,7 +102,7 @@ const Notes = () => {
           ))}
         </ul>
       </div>
-      <button className="new-note" onClick={openCreateNote}>
+      <button className="new-item" onClick={openCreateNote}>
         <span>
           <FontAwesomeIcon icon={faCirclePlus} />
         </span>

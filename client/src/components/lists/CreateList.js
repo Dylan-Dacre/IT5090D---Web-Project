@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./CreateList.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus, faCircleXmark } from "@fortawesome/free-solid-svg-icons";
@@ -68,9 +67,9 @@ const CreateList = ({ onClose }) => {
   };
 
   return (
-    <div className="create-list-container">
+    <div className="create-container">
       <h2>New List</h2>
-      <div className="create-list-form">
+      <div className="create-form">
         <form onSubmit={handleSubmit}>
           <label htmlFor="title">Title:</label>
           <input
@@ -97,15 +96,21 @@ const CreateList = ({ onClose }) => {
               />
             </div>
           ))}
-          <button type="button" onClick={handleAddListitem}>
+          <button
+            className="add-sub-item"
+            type="button"
+            onClick={handleAddListitem}
+          >
             <span>
               <FontAwesomeIcon icon={faCirclePlus} />
             </span>
           </button>
-          <button type="submit">submit</button>
+          <button className="submit" type="submit">
+            submit
+          </button>
         </form>
       </div>
-      <button onClick={onClose}>
+      <button className="icon-close" onClick={onClose}>
         <span>
           <FontAwesomeIcon icon={faCircleXmark} />
         </span>

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./EditNote.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -47,9 +46,9 @@ const EditNote = ({ note, onClose }) => {
   };
 
   return (
-    <div className="edit-note-container">
+    <div className="edit-container">
       <h2>Edit Note</h2>
-      <div className="edit-note-form">
+      <div className="edit-form">
         <form onSubmit={handleSubmit}>
           <label htmlFor="title">Title:</label>
           <input
@@ -65,12 +64,12 @@ const EditNote = ({ note, onClose }) => {
             onChange={handleChange}
           />
           <div className="edit-controls">
-            <button className="edit-close" onClick={onClose}>
+            <button className="icon-close" onClick={onClose}>
               <span>
                 <FontAwesomeIcon icon={faCircleXmark} />
               </span>
             </button>
-            <button className="edit-save" type="submit">
+            <button className="edit-sub" type="submit">
               <span>
                 <FontAwesomeIcon icon={faCircleCheck} />
               </span>

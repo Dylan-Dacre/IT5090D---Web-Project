@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./EditTask.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -73,9 +72,9 @@ const EditTask = ({ task, onClose }) => {
   };
 
   return (
-    <div className="edit-task-container">
+    <div className="edit-container">
       <h2>Edit Task</h2>
-      <div className="edit-task-form">
+      <div className="edit-form">
         <form onSubmit={handleSubmit}>
           <label>
             Title:
@@ -122,12 +121,12 @@ const EditTask = ({ task, onClose }) => {
             </span>
           </button>
           <div className="edit-controls">
-            <button className="edit-close" onClick={onClose}>
+            <button className="icon-close" onClick={onClose}>
               <span>
                 <FontAwesomeIcon icon={faCircleXmark} />
               </span>
             </button>
-            <button className="edit-edit" type="submit">
+            <button className="edit-sub" type="submit">
               <span>
                 <FontAwesomeIcon icon={faCircleCheck} />
               </span>
