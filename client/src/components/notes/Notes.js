@@ -3,6 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import CreateNote from "./CreateNote";
 import EditNote from "./EditNote";
 import DeleteNote from "./DeleteNote";
+import ScrollToTop from "../../utils/ScrollToTop";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCirclePlus,
@@ -114,6 +115,7 @@ const Notes = () => {
       {isDeleteNoteVisible && noteToDelete !== null && (
         <DeleteNote note={noteToDelete} onClose={closeDeleteNote} />
       )}
+      <ScrollToTop />
     </div>
   );
 };

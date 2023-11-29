@@ -81,7 +81,7 @@ const CreateTask = ({ onClose }) => {
             onChange={handleChange}
           />
           <label htmlFor="description">Description:</label>
-          <textarea
+          <input
             id="description"
             name="description"
             value={newTask.description}

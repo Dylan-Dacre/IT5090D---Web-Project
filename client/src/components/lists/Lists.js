@@ -3,6 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import CreateList from "./CreateList";
 import EditList from "./EditList";
 import DeleteList from "./DeleteList";
+import ScrollToTop from "../../utils/ScrollToTop";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPen,
@@ -121,6 +122,7 @@ const Lists = () => {
       {isDeleteListVisible && listToDelete !== null && (
         <DeleteList list={listToDelete} onClose={closeDeleteList} />
       )}
+      <ScrollToTop />
     </div>
   );
 };

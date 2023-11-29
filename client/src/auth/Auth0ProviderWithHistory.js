@@ -7,7 +7,7 @@ const Auth0ProviderWithHistory = ({ children }) => {
   const clientId = "bMTFH85qLerGmhFvKCRJaVemf9TtvPtl";
   const audience = "https://xxx.co.nz";
   const redirectUri = window.location.origin;
-  const authorizationParams = { audience: audience, redirectUri: redirectUri };
+  const authorizationParams = { audience: audience, redirect_uri: redirectUri };
 
   const onRedirectCallback = (appState) => {
     if (appState?.returnTo === "/dashboard") {

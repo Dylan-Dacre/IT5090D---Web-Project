@@ -1,0 +1,35 @@
+.scroll-to-top {
+  position: fixed;
+  bottom: 50px;
+  right: 0px;
+  background-color: #ccc;
+  color: #fff;
+  border-radius: 4px 0 0 4px;
+  padding: 10px 15px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+}
+
+.scroll-to-top:hover {
+  animation: jiggle-rotate 1s ease-in-out infinite;
+  background-color: #afaeae;
+}
+
+@keyframes jiggle-rotate {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  25%,
+  75% {
+    transform: translateX(-3px) rotate(-5deg);
+  }
+  50% {
+    transform: translateX(3px) rotate(5deg);
+  }
+}

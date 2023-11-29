@@ -5,6 +5,7 @@ import CreateTask from "./CreateTask";
 import EditTask from "./EditTask";
 import DeleteTask from "./DeleteTask";
 import CompleteTask from "./CompleteTask";
+import ScrollToTop from "../../utils/ScrollToTop";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCirclePlus,
@@ -171,6 +172,7 @@ const Tasks = () => {
           onClose={() => setTaskToComplete(null)}
         />
       )}
+      <ScrollToTop />
     </div>
   );
 };
