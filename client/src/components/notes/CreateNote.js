@@ -41,34 +41,36 @@ const CreateNote = ({ onClose }) => {
   };
 
   return (
-    <div className="create-container">
-      <h2>New Note</h2>
-      <div className="create-form">
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="title">Title:</label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            value={newNote.title}
-            onChange={handleCreate}
-          />
-          <label htmlFor="content">Content:</label>
-          <textarea
-            id="content"
-            name="content"
-            value={newNote.content}
-            onChange={handleCreate}
-          />
-          <button className="submit" type="submit">
-            Submit
-          </button>
-          <button className="icon-close" type="button" onClick={onClose}>
-            <span>
-              <FontAwesomeIcon icon={faCircleXmark} />
-            </span>
-          </button>
-        </form>
+    <div className="background">
+      <div className="create-container">
+        <h2>New Note</h2>
+        <div className="create-form">
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="title">Title:</label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              value={newNote.title}
+              onChange={handleCreate}
+            />
+            <label htmlFor="content">Content:</label>
+            <textarea
+              id="content"
+              name="content"
+              value={newNote.content}
+              onChange={handleCreate}
+            />
+            <button className="submit" type="submit">
+              Submit
+            </button>
+            <button className="icon-close" type="button" onClick={onClose}>
+              <span>
+                <FontAwesomeIcon icon={faCircleXmark} />
+              </span>
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );

@@ -74,62 +74,68 @@ const EditList = ({ list, onClose }) => {
   };
 
   return (
-    <div className="edit-container">
-      <h2>Edit List</h2>
-      <div className="edit-form">
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="title">Title</label>
-          <input
-            type="text"
-            name="title"
-            value={editedList.title}
-            onChange={handleChange}
-          />
-          <label htmlFor="description">Description</label>
-          <input
-            type="text"
-            name="description"
-            value={editedList.description}
-            onChange={handleChange}
-          />
-          <label htmlFor="listitems">List Items</label>
-          {editedList.listitems.map((listitem, index) => (
-            <div key={index} className="sub-container">
-              <input
-                type="text"
-                name="listitems"
-                value={listitem.title}
-                onChange={(e) => handleListitemChange(e, index)}
-              />
-              <button
-                type="button"
-                className="sub-remove"
-                onClick={() => handleRemoveListitem(index)}
-              >
+    <div className="background">
+      <div className="edit-container">
+        <h2>Edit List</h2>
+        <div className="edit-form">
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="title">Title</label>
+            <input
+              type="text"
+              name="title"
+              value={editedList.title}
+              onChange={handleChange}
+            />
+            <label htmlFor="description">Description</label>
+            <input
+              type="text"
+              name="description"
+              value={editedList.description}
+              onChange={handleChange}
+            />
+            <label htmlFor="listitems">List Items</label>
+            {editedList.listitems.map((listitem, index) => (
+              <div key={index} className="sub-container">
+                <input
+                  type="text"
+                  name="listitems"
+                  value={listitem.title}
+                  onChange={(e) => handleListitemChange(e, index)}
+                />
+                <button
+                  type="button"
+                  className="sub-remove"
+                  onClick={() => handleRemoveListitem(index)}
+                >
+                  <span>
+                    <FontAwesomeIcon icon={faCircleMinus} />
+                  </span>
+                </button>
+              </div>
+            ))}
+            <button
+              type="button"
+              className="sub-add"
+              onClick={handleAddListitem}
+            >
+              <span>
+                <FontAwesomeIcon icon={faCirclePlus} />
+              </span>
+            </button>
+            <div className="edit-controls">
+              <button className="icon-close" onClick={onClose}>
                 <span>
-                  <FontAwesomeIcon icon={faCircleMinus} />
+                  <FontAwesomeIcon icon={faCircleXmark} />
+                </span>
+              </button>
+              <button className="edit-sub" type="submit">
+                <span>
+                  <FontAwesomeIcon icon={faCircleCheck} />
                 </span>
               </button>
             </div>
-          ))}
-          <button type="button" className="sub-add" onClick={handleAddListitem}>
-            <span>
-              <FontAwesomeIcon icon={faCirclePlus} />
-            </span>
-          </button>
-          <div className="edit-controls">
-            <button className="icon-close" onClick={onClose}>
-              <span>
-                <FontAwesomeIcon icon={faCircleXmark} />
-              </span>
-            </button>
-            <button className="edit-sub" type="submit">
-              <span>
-                <FontAwesomeIcon icon={faCircleCheck} />
-              </span>
-            </button>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
   );

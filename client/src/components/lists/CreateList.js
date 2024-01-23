@@ -67,54 +67,56 @@ const CreateList = ({ onClose }) => {
   };
 
   return (
-    <div className="create-container">
-      <h2>New List</h2>
-      <div className="create-form">
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="title">Title:</label>
-          <input
-            type="text"
-            name="title"
-            value={newList.title}
-            onChange={handleChange}
-          />
-          <label htmlFor="description">Description:</label>
-          <input
-            type="text"
-            name="description"
-            value={newList.description}
-            onChange={handleChange}
-          />
-          <label htmlFor="listitems">List Items:</label>
-          {newList.listitems.map((listitem, index) => (
-            <div key={index}>
-              <input
-                type="text"
-                name="listitems"
-                value={listitem.title}
-                onChange={(e) => handleChange(e, index)}
-              />
-            </div>
-          ))}
-          <button
-            className="add-sub-item"
-            type="button"
-            onClick={handleAddListitem}
-          >
-            <span>
-              <FontAwesomeIcon icon={faCirclePlus} />
-            </span>
-          </button>
-          <button className="submit" type="submit">
-            submit
-          </button>
-        </form>
+    <div className="background">
+      <div className="create-container">
+        <h2>New List</h2>
+        <div className="create-form">
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="title">Title:</label>
+            <input
+              type="text"
+              name="title"
+              value={newList.title}
+              onChange={handleChange}
+            />
+            <label htmlFor="description">Description:</label>
+            <input
+              type="text"
+              name="description"
+              value={newList.description}
+              onChange={handleChange}
+            />
+            <label htmlFor="listitems">List Items:</label>
+            {newList.listitems.map((listitem, index) => (
+              <div key={index}>
+                <input
+                  type="text"
+                  name="listitems"
+                  value={listitem.title}
+                  onChange={(e) => handleChange(e, index)}
+                />
+              </div>
+            ))}
+            <button
+              className="add-sub-item"
+              type="button"
+              onClick={handleAddListitem}
+            >
+              <span>
+                <FontAwesomeIcon icon={faCirclePlus} />
+              </span>
+            </button>
+            <button className="submit" type="submit">
+              submit
+            </button>
+          </form>
+        </div>
+        <button className="icon-close" onClick={onClose}>
+          <span>
+            <FontAwesomeIcon icon={faCircleXmark} />
+          </span>
+        </button>
       </div>
-      <button className="icon-close" onClick={onClose}>
-        <span>
-          <FontAwesomeIcon icon={faCircleXmark} />
-        </span>
-      </button>
     </div>
   );
 };

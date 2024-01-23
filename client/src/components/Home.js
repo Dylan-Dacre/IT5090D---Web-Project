@@ -1,12 +1,11 @@
 import "./Home.css";
 import LoginButton from "../utils/LoginButton";
-import getRandomQuote from "../utils/RandomQuote";
 
 const Home = () => {
   return (
     <div className="home">
-      <h1>XXX</h1>
-      <p>{getRandomQuote}</p>
+      <h1>MooDoo</h1>
+      <p>NOTE: This is a privatley hosted application with limited access.</p>
       <LoginButton />
     </div>
   );

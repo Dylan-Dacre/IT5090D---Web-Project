@@ -1,82 +1,64 @@
-import React, { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import React from "react";
+import { useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Header.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHome,
-  faBars,
-  faBarsStaggered,
-} from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
-  const navigate = useNavigate();
   const location = useLocation();
-  const [showDropdown, setShowDropdown] = useState(false);
-
-  const goHome = () => {
-    navigate("/");
-    setShowDropdown(false);
-  };
-
-  const toggleDropdown = () => {
-    setShowDropdown((prevShowDropdown) => !prevShowDropdown);
-  };
-
-  const navigateTo = (path) => {
-    navigate(path);
-    setShowDropdown(false);
-  };
-
   const isHomePage = location.pathname === "/";
   const isMenuPage =
     !isHomePage &&
-    ["/dashboard", "/tasks", "/lists", "/notes"].includes(location.pathname);
+    ["/dashboard", "/tasks", "/lists", "/notes", "/goals"].includes(
+      location.pathname
+    );
   const renderHeader = !isHomePage || isMenuPage;
 
   return renderHeader ? (
     <header>
       <div className="header-container">
-        <button className="home-button" onClick={goHome}>
-          <span className="icon-home">
-            <FontAwesomeIcon icon={faHome} />
-          </span>
-        </button>
-        {isMenuPage && (
-          <button className="menu-button" onClick={toggleDropdown}>
-            <span className="icon-menu">
-              <FontAwesomeIcon icon={showDropdown ? faBarsStaggered : faBars} />
-            </span>
-          </button>
-        )}
-        <p className="header-title">XXX</p>
-        {showDropdown && (
-          <div className="dropdown">
-            <button
-              onClick={() => navigateTo("/dashboard")}
-              className={location.pathname === "/dashboard" ? "active" : ""}
-            >
-              Dashboard
-            </button>
-            <button
-              onClick={() => navigateTo("/tasks")}
-              className={location.pathname === "/tasks" ? "active" : ""}
-            >
-              Tasks
-            </button>
-            <button
-              onClick={() => navigateTo("/lists")}
-              className={location.pathname === "/lists" ? "active" : ""}
-            >
-              Lists
-            </button>
-            <button
-              onClick={() => navigateTo("/notes")}
-              className={location.pathname === "/notes" ? "active" : ""}
-            >
-              Notes
-            </button>
-          </div>
-        )}
+        <p className="header-title">MooDoo</p>
+        <div className="nav-links">
+          <NavLink
+            to="/dashboard"
+            className={({ isActive }) =>
+              isActive ? "link activeLink" : "link"
+            }
+          >
+            Dashboard
+          </NavLink>
+          <NavLink
+            to="/tasks"
+            className={({ isActive }) =>
+              isActive ? "link activeLink" : "link"
+            }
+          >
+            Tasks
+          </NavLink>
+          <NavLink
+            to="/lists"
+            className={({ isActive }) =>
+              isActive ? "link activeLink" : "link"
+            }
+          >
+            Lists
+          </NavLink>
+          <NavLink
+            to="/notes"
+            className={({ isActive }) =>
+              isActive ? "link activeLink" : "link"
+            }
+          >
+            Notes
+          </NavLink>
+          <NavLink
+            to="/goals"
+            className={({ isActive }) =>
+              isActive ? "link activeLink" : "link"
+            }
+          >
+            Goals
+          </NavLink>
+        </div>
       </div>
     </header>
   ) : null;

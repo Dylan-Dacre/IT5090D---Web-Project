@@ -68,56 +68,58 @@ const CreateTask = ({ onClose }) => {
   };
 
   return (
-    <div className="create-container">
-      <h2>New Task</h2>
-      <div className="create-form">
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="title">Title:</label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            value={newTask.title}
-            onChange={handleChange}
-          />
-          <label htmlFor="description">Description:</label>
-          <input
-            id="description"
-            name="description"
-            value={newTask.description}
-            onChange={handleChange}
-          />
-          <label htmlFor="subtasks">Subtasks:</label>
-          {newTask.subtasks.map((subtask, index) => (
-            <div key={index}>
-              <input
-                type="text"
-                id={`subtask-${index}`}
-                name="subtasks"
-                value={subtask.title}
-                onChange={(e) => handleChange(e, index)}
-              />
-            </div>
-          ))}
-          <button
-            className="add-sub-item"
-            type="button"
-            onClick={handleAddSubtask}
-          >
-            <span>
-              <FontAwesomeIcon icon={faCirclePlus} />
-            </span>
-          </button>
-          <button className="submit" type="submit">
-            Submit
-          </button>
-        </form>
+    <div className="background">
+      <div className="create-container">
+        <h2>New Task</h2>
+        <div className="create-form">
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="title">Title:</label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              value={newTask.title}
+              onChange={handleChange}
+            />
+            <label htmlFor="description">Description:</label>
+            <input
+              id="description"
+              name="description"
+              value={newTask.description}
+              onChange={handleChange}
+            />
+            <label htmlFor="subtasks">Subtasks:</label>
+            {newTask.subtasks.map((subtask, index) => (
+              <div key={index}>
+                <input
+                  type="text"
+                  id={`subtask-${index}`}
+                  name="subtasks"
+                  value={subtask.title}
+                  onChange={(e) => handleChange(e, index)}
+                />
+              </div>
+            ))}
+            <button
+              className="add-sub-item"
+              type="button"
+              onClick={handleAddSubtask}
+            >
+              <span>
+                <FontAwesomeIcon icon={faCirclePlus} />
+              </span>
+            </button>
+            <button className="submit" type="submit">
+              Submit
+            </button>
+          </form>
+        </div>
+        <button onClick={onClose}>
+          <span className="icon-close">
+            <FontAwesomeIcon icon={faCircleXmark} />
+          </span>
+        </button>
       </div>
-      <button onClick={onClose}>
-        <span className="icon-close">
-          <FontAwesomeIcon icon={faCircleXmark} />
-        </span>
-      </button>
     </div>
   );
 };

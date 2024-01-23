@@ -31,26 +31,28 @@ const DeleteTask = ({ task, onClose }) => {
   };
 
   return (
-    <div className="delete-container">
-      <h2>Delete Task</h2>
-      <p>Are you sure you want to delete this task?</p>
-      <div className="del-controls">
-        <button className="icon-close" onClick={onClose}>
-          <span>
-            <FontAwesomeIcon icon={faCircleXmark} />
-          </span>
-        </button>
-        <button
-          className="icon-trash"
-          onClick={(e) => {
-            e.preventDefault();
-            handleDelete(task);
-          }}
-        >
-          <span>
-            <FontAwesomeIcon icon={faTrash} />
-          </span>
-        </button>
+    <div className="background">
+      <div className="delete-container">
+        <h2>Delete Task</h2>
+        <p>Are you sure you want to delete this task?</p>
+        <div className="del-controls">
+          <button className="icon-close" onClick={onClose}>
+            <span>
+              <FontAwesomeIcon icon={faCircleXmark} />
+            </span>
+          </button>
+          <button
+            className="icon-trash"
+            onClick={(e) => {
+              e.preventDefault();
+              handleDelete(task);
+            }}
+          >
+            <span>
+              <FontAwesomeIcon icon={faTrash} />
+            </span>
+          </button>
+        </div>
       </div>
     </div>
   );

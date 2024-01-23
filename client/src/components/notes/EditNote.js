@@ -46,36 +46,38 @@ const EditNote = ({ note, onClose }) => {
   };
 
   return (
-    <div className="edit-container">
-      <h2>Edit Note</h2>
-      <div className="edit-form">
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="title">Title:</label>
-          <input
-            type="text"
-            name="title"
-            value={editedNote.title}
-            onChange={handleChange}
-          />
-          <label htmlFor="content">Content:</label>
-          <textarea
-            name="content"
-            value={editedNote.content}
-            onChange={handleChange}
-          />
-          <div className="edit-controls">
-            <button className="icon-close" onClick={onClose}>
-              <span>
-                <FontAwesomeIcon icon={faCircleXmark} />
-              </span>
-            </button>
-            <button className="edit-sub" type="submit">
-              <span>
-                <FontAwesomeIcon icon={faCircleCheck} />
-              </span>
-            </button>
-          </div>
-        </form>
+    <div className="background">
+      <div className="edit-container">
+        <h2>Edit Note</h2>
+        <div className="edit-form">
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="title">Title:</label>
+            <input
+              type="text"
+              name="title"
+              value={editedNote.title}
+              onChange={handleChange}
+            />
+            <label htmlFor="content">Content:</label>
+            <textarea
+              name="content"
+              value={editedNote.content}
+              onChange={handleChange}
+            />
+            <div className="edit-controls">
+              <button className="icon-close" onClick={onClose}>
+                <span>
+                  <FontAwesomeIcon icon={faCircleXmark} />
+                </span>
+              </button>
+              <button className="edit-sub" type="submit">
+                <span>
+                  <FontAwesomeIcon icon={faCircleCheck} />
+                </span>
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );
