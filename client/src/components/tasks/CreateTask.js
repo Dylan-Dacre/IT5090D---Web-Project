@@ -76,14 +76,13 @@ const CreateTask = ({ onClose }) => {
             <label htmlFor="title">Title:</label>
             <input
               type="text"
-              id="title"
               name="title"
               value={newTask.title}
               onChange={handleChange}
             />
             <label htmlFor="description">Description:</label>
             <input
-              id="description"
+              type="text"
               name="description"
               value={newTask.description}
               onChange={handleChange}
@@ -114,8 +113,8 @@ const CreateTask = ({ onClose }) => {
             </button>
           </form>
         </div>
-        <button onClick={onClose}>
-          <span className="icon-close">
+        <button className="icon-close" onClick={onClose}>
+          <span>
             <FontAwesomeIcon icon={faCircleXmark} />
           </span>
         </button>

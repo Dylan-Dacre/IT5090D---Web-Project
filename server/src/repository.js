@@ -37,7 +37,7 @@ module.exports = {
 
   getGoals: async (userId) => {
     try {
-      const goals = await Goal.find({ userId: userId });
+      const goals = await Goal.find({ userId: userId, completed: false });
       return goals;
     } catch (err) {
       throw new Error(err);

@@ -88,7 +88,8 @@ const EditTask = ({ task, onClose }) => {
             </label>
             <label>
               Description:
-              <textarea
+              <input
+                type="text"
                 name="description"
                 value={editedTask.description}
                 onChange={handleChange}

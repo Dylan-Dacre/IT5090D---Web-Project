@@ -4,10 +4,11 @@ import { useAuth0 } from "@auth0/auth0-react";
 import ProtectedRoute from "./auth/ProtectedRoute";
 import Header from "./components/Header";
 import Home from "./components/Home";
+import Dashboard from "./components/Dashboard";
 import Tasks from "./components/tasks/Tasks";
 import Lists from "./components/lists/Lists";
 import Notes from "./components/notes/Notes";
-import Dashboard from "./components/Dashboard";
+import Goals from "./components/goals/Goals";
 
 const App = () => {
   const { isLoading } = useAuth0();
@@ -37,6 +38,10 @@ const App = () => {
 
           <Route path="/notes" element={<ProtectedRoute />}>
             <Route index element={<Notes />} />
+          </Route>
+
+          <Route path="/goals" element={<ProtectedRoute />}>
+            <Route index element={<Goals />} />
           </Route>
         </Routes>
       </div>

@@ -158,13 +158,13 @@ const Tasks = () => {
           <FontAwesomeIcon icon={faCirclePlus} />
         </span>
       </button>
-      {isDeleteTaskVisible && taskToDelete !== null && (
-        <DeleteTask task={taskToDelete} onClose={closeDeleteTask} />
-      )}
+      {isCreateTaskVisible && <CreateTask onClose={closeCreateTask} />}
       {isEditTaskVisible && taskToEdit !== null && (
         <EditTask task={taskToEdit} onClose={closeEditTask} />
       )}
-      {isCreateTaskVisible && <CreateTask onClose={closeCreateTask} />}
+      {isDeleteTaskVisible && taskToDelete !== null && (
+        <DeleteTask task={taskToDelete} onClose={closeDeleteTask} />
+      )}
       {taskToComplete !== null && (
         <CompleteTask
           task={taskToComplete}
