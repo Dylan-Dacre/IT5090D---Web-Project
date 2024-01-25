@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const getNotes = require("../src/repository");
+const getNote = require("../src/repository");
 const createNote = require("../src/repository");
 const updateNote = require("../src/repository");
 const deleteNote = require("../src/repository");

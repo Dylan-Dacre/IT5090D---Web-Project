@@ -4,6 +4,7 @@ const cors = require("cors");
 const tasksRouter = require("../routers/tasks.router");
 const listsRouter = require("../routers/lists.router");
 const notesRouter = require("../routers/notes.router");
+const goalsRouter = require("../routers/goals.router");
 const { checkJwt } = require("../middleware/authorizationMiddleware");
 const errorHandler = require("../middleware/errorHandlingMiddleware");
 
@@ -15,6 +16,7 @@ app.use(express.urlencoded({ limit: "10mb", extended: true }));
 app.use("/api/tasks", checkJwt, tasksRouter);
 app.use("/api/lists", checkJwt, listsRouter);
 app.use("/api/notes", checkJwt, notesRouter);
+app.use("/api/goals", checkJwt, goalsRouter);
 
 app.use(errorHandler);
 

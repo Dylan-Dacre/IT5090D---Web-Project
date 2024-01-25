@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const getLists = require("../src/repository");
+const getList = require("../src/repository");
 const createList = require("../src/repository");
 const updateList = require("../src/repository");
 const deleteList = require("../src/repository");

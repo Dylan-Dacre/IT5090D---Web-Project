@@ -1,6 +1,7 @@
 const Task = require("../models/taskModel");
 const List = require("../models/listModel");
 const Note = require("../models/noteModel");
+const Goal = require("../models/goalModel");
 const db = require("./db");
 db.connect();
 
@@ -29,6 +30,15 @@ module.exports = {
     try {
       const notes = await Note.find({ userId: userId });
       return notes;
+    } catch (err) {
+      throw new Error(err);
+    }
+  },
+
+  getGoals: async (userId) => {
+    try {
+      const goals = await Goal.find({ userId: userId });
+      return goals;
     } catch (err) {
       throw new Error(err);
     }
@@ -63,6 +73,15 @@ module.exports = {
     }
   },
 
+  getGoal: async (userId, goalId) => {
+    try {
+      const goal = await Goal.findOne({ userId: userId, _id: goalId });
+      return goal;
+    } catch (err) {
+      throw new Error(err);
+    }
+  },
+
   // Create an item
 
   createTask: async (taskBody) => {
@@ -90,6 +109,16 @@ module.exports = {
       const note = new Note(noteBody);
       const savedNote = await note.save();
       return savedNote;
+    } catch (err) {
+      throw new Error(err);
+    }
+  },
+
+  createGoal: async (goalBody) => {
+    try {
+      const goal = new Goal(goalBody);
+      const savedGoal = await goal.save();
+      return savedGoal;
     } catch (err) {
       throw new Error(err);
     }
@@ -136,6 +165,19 @@ module.exports = {
     }
   },
 
+  updateGoal: async (userId, goalId, goalBody) => {
+    try {
+      const goal = await Goal.findOneAndUpdate(
+        { userId: userId, _id: goalId },
+        goalBody,
+        { new: true }
+      );
+      return goal;
+    } catch (err) {
+      throw new Error(err);
+    }
+  },
+
   // Delete an item
 
   deleteTask: async (userId, taskId) => {
@@ -160,6 +202,15 @@ module.exports = {
     try {
       const note = await Note.findOneAndDelete({ userId: userId, _id: noteId });
       return note;
+    } catch (err) {
+      throw new Error(err);
+    }
+  },
+
+  deleteGoal: async (userId, goalId) => {
+    try {
+      const goal = await Goal.findOneAndDelete({ userId: userId, _id: goalId });
+      return goal;
     } catch (err) {
       throw new Error(err);
     }
