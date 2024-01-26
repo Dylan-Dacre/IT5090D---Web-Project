@@ -1,10 +1,8 @@
 const mongoose = require("mongoose");
 
-const connectionString = "mongodb://localhost:27017/data";
-
 async function connect() {
   try {
-    await mongoose.connect(connectionString, {
+    await mongoose.connect(process.env.MONGODB_CONNECTION_STRING, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
