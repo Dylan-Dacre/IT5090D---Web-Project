@@ -12,7 +12,7 @@ const CompleteGoal = ({ goal, onClose }) => {
         completeGoal.dateCompleted = new Date();
 
         const response = await fetch(
-          `http://localhost:5001/api/goals/${goal._id}`,
+          `http://localhost:1337/api/goals/${goal._id}`,
           {
             method: "PUT",
             headers: {

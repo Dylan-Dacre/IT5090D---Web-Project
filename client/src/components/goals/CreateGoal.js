@@ -26,7 +26,7 @@ const CreateGoal = ({ onClose }) => {
     };
 
     try {
-      const response = await fetch("http://localhost:5001/api/goals", {
+      const response = await fetch("http://localhost:1337/api/goals", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

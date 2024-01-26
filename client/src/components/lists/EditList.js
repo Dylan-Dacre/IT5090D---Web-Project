@@ -15,7 +15,7 @@ const EditList = ({ list, onClose }) => {
   const handleEdit = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5001/api/lists/${list._id}`,
+        `http://localhost:1337/api/lists/${list._id}`,
         {
           method: "PUT",
           headers: {

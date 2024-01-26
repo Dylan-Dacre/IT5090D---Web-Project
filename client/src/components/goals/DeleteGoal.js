@@ -8,7 +8,7 @@ const DeleteGoal = ({ goal, onClose }) => {
   const handleDelete = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5001/api/goals/${goal._id}`,
+        `http://localhost:1337/api/goals/${goal._id}`,
         {
           method: "DELETE",
           headers: {

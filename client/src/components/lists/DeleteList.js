@@ -8,7 +8,7 @@ const DeleteList = ({ list, onClose }) => {
   const handleDelete = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5001/api/lists/${list.id}`,
+        `http://localhost:1337/api/lists/${list.id}`,
         {
           method: "DELETE",
           headers: {

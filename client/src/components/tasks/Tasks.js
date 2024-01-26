@@ -27,7 +27,7 @@ const Tasks = () => {
   const [updateTasks, setUpdateTasks] = useState(false);
 
   const fetchData = async () => {
-    const response = await fetch("http://localhost:5001/api/tasks", {
+    const response = await fetch("http://localhost:1337/api/tasks", {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${await getAccessTokenSilently()}`,

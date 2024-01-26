@@ -16,7 +16,7 @@ const CompleteTask = ({ task, subtaskIndex, onClose }) => {
         }
 
         const response = await fetch(
-          `http://localhost:5001/api/tasks/${task._id}`,
+          `http://localhost:1337/api/tasks/${task._id}`,
           {
             method: "PUT",
             headers: {

@@ -15,7 +15,7 @@ const EditTask = ({ task, onClose }) => {
   const handleEdit = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5001/api/tasks/${task._id}`,
+        `http://localhost:1337/api/tasks/${task._id}`,
         {
           method: "PUT",
           headers: {

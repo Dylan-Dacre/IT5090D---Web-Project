@@ -13,7 +13,7 @@ const EditNote = ({ note, onClose }) => {
   const handleEdit = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5001/api/notes/${note._id}`,
+        `http://localhost:1337/api/notes/${note._id}`,
         {
           method: "PUT",
           headers: {

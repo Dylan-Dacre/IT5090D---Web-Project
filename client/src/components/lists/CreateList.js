@@ -45,7 +45,7 @@ const CreateList = ({ onClose }) => {
     };
 
     try {
-      const response = await fetch("http://localhost:5001/api/lists", {
+      const response = await fetch("http://localhost:1337/api/lists", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
