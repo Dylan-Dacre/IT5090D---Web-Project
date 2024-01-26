@@ -27,7 +27,7 @@ const Goals = () => {
   const [updateGoals, setUpdateGoals] = useState(false);
 
   const fetchData = async () => {
-    const response = await fetch("http://localhost:1337/api/goals", {
+    const response = await fetch("https://moodoo.app:1337/api/goals", {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${await getAccessTokenSilently()}`,

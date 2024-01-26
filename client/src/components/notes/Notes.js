@@ -22,7 +22,7 @@ const Notes = () => {
   const [updateNotes, setUpdateNotes] = useState(false);
 
   const fetchData = async () => {
-    const response = await fetch("http://localhost:1337/api/notes", {
+    const response = await fetch("https://moodoo.app:1337/api/notes", {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${await getAccessTokenSilently()}`,

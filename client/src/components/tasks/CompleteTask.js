@@ -16,7 +16,7 @@ const CompleteTask = ({ task, subtaskIndex, onClose }) => {
         }
 
         const response = await fetch(
-          `http://localhost:1337/api/tasks/${task._id}`,
+          `https://moodoo.app:1337/api/tasks/${task._id}`,
           {
             method: "PUT",
             headers: {

@@ -22,7 +22,7 @@ const Lists = () => {
   const [updateLists, setUpdateLists] = useState(false);
 
   const fetchData = async () => {
-    const response = await fetch("http://localhost:1337/api/lists", {
+    const response = await fetch("https://moodoo.app:1337/api/lists", {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${await getAccessTokenSilently()}`,
