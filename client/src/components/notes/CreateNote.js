@@ -19,7 +19,7 @@ const CreateNote = ({ onClose }) => {
     e.preventDefault();
 
     try {
-      const response = await fetch("https://moodoo.app:1337/api/notes", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/notes`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

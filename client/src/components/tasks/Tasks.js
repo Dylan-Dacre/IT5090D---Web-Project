@@ -27,7 +27,7 @@ const Tasks = () => {
   const [updateTasks, setUpdateTasks] = useState(false);
 
   const fetchData = async () => {
-    const response = await fetch("https://moodoo.app:1337/api/tasks", {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/tasks`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${await getAccessTokenSilently()}`,

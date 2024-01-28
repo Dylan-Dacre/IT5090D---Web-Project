@@ -27,7 +27,7 @@ const Goals = () => {
   const [updateGoals, setUpdateGoals] = useState(false);
 
   const fetchData = async () => {
-    const response = await fetch("https://moodoo.app:1337/api/goals", {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/goals`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${await getAccessTokenSilently()}`,

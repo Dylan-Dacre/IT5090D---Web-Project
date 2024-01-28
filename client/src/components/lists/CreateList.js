@@ -45,7 +45,7 @@ const CreateList = ({ onClose }) => {
     };
 
     try {
-      const response = await fetch("https://moodoo.app:1337/api/lists", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/lists`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

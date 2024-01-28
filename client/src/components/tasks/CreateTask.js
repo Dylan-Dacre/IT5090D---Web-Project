@@ -46,7 +46,7 @@ const CreateTask = ({ onClose }) => {
     };
 
     try {
-      const response = await fetch("https://moodoo.app:1337/api/tasks", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/tasks`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

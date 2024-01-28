@@ -8,7 +8,7 @@ const DeleteNote = ({ note, onClose }) => {
   const handleDelete = async () => {
     try {
       const response = await fetch(
-        `https://moodoo.app:1337/api/notes/${note._id}`,
+        `${process.env.REACT_APP_API_URL}/notes${note._id}`,
         {
           method: "DELETE",
           headers: {

@@ -13,7 +13,7 @@ const EditGoal = ({ goal, onClose }) => {
   const handleEdit = async () => {
     try {
       const response = await fetch(
-        `https://moodoo.app:1337/api/goals/${goal._id}`,
+        `${process.env.REACT_APP_API_URL}/goals${goal._id}`,
         {
           method: "PUT",
           headers: {
