@@ -21,17 +21,6 @@ const Lists = () => {
   const [listToDelete, setListToDelete] = useState(null);
   const [updateLists, setUpdateLists] = useState(false);
 
-  const fetchData = async () => {
-    const response = await fetch(`${process.env.REACT_APP_API_URL}/lists`, {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${await getAccessTokenSilently()}`,
-      },
-    });
-    const data = await response.json();
-    setLists(data);
-  };
-
   const openCreateList = () => {
     setIsCreateListVisible(true);
   };
@@ -62,9 +51,19 @@ const Lists = () => {
   };
 
   useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/lists`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${await getAccessTokenSilently()}`,
+        },
+      });
+      const data = await response.json();
+      setLists(data);
+    };
+
     fetchData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [updateLists]);
+  }, [updateLists, getAccessTokenSilently]);
 
   return (
     <div className="content-container">

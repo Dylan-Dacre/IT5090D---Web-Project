@@ -26,17 +26,6 @@ const Tasks = () => {
   const [subtaskIndex, setSubtaskIndex] = useState(null);
   const [updateTasks, setUpdateTasks] = useState(false);
 
-  const fetchData = async () => {
-    const response = await fetch(`${process.env.REACT_APP_API_URL}/tasks`, {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${await getAccessTokenSilently()}`,
-      },
-    });
-    const data = await response.json();
-    setTasks(data);
-  };
-
   const openCreateTask = () => {
     setIsCreateTaskVisible(true);
   };
@@ -75,9 +64,19 @@ const Tasks = () => {
   };
 
   useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/tasks`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${await getAccessTokenSilently()}`,
+        },
+      });
+      const data = await response.json();
+      setTasks(data);
+    };
+
     fetchData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [updateTasks]);
+  }, [updateTasks, getAccessTokenSilently]);
 
   return (
     <div className="content-container">

@@ -8,7 +8,7 @@ const DeleteGoal = ({ goal, onClose }) => {
   const handleDelete = async () => {
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/goals${goal._id}`,
+        `${process.env.REACT_APP_API_URL}/goals/${goal._id}`,
         {
           method: "DELETE",
           headers: {

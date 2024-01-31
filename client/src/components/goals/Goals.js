@@ -26,17 +26,6 @@ const Goals = () => {
   const [goalToComplete, setGoalToComplete] = useState(null);
   const [updateGoals, setUpdateGoals] = useState(false);
 
-  const fetchData = async () => {
-    const response = await fetch(`${process.env.REACT_APP_API_URL}/goals`, {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${await getAccessTokenSilently()}`,
-      },
-    });
-    const data = await response.json();
-    setGoals(data);
-  };
-
   const formatDate = (utcDate) => {
     const nzstDate = moment(utcDate)
       .tz("Pacific/Auckland")
@@ -85,9 +74,19 @@ const Goals = () => {
   };
 
   useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/goals`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${await getAccessTokenSilently()}`,
+        },
+      });
+      const data = await response.json();
+      setGoals(data);
+    };
+
     fetchData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [updateGoals]);
+  }, [updateGoals, getAccessTokenSilently]);
 
   return (
     <div className="content-container">

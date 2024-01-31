@@ -21,17 +21,6 @@ const Notes = () => {
   const [noteToDelete, setNoteToDelete] = useState(null);
   const [updateNotes, setUpdateNotes] = useState(false);
 
-  const fetchData = async () => {
-    const response = await fetch(`${process.env.REACT_APP_API_URL}/notes`, {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${await getAccessTokenSilently()}`,
-      },
-    });
-    const data = await response.json();
-    setNotes(data);
-  };
-
   const openCreateNote = () => {
     setIsCreateNoteVisible(true);
   };
@@ -62,9 +51,19 @@ const Notes = () => {
   };
 
   useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/notes`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${await getAccessTokenSilently()}`,
+        },
+      });
+      const data = await response.json();
+      setNotes(data);
+    };
+
     fetchData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [updateNotes]);
+  }, [updateNotes, getAccessTokenSilently]);
 
   return (
     <div className="content-container">
