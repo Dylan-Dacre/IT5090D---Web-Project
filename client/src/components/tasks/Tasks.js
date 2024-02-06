@@ -104,14 +104,18 @@ const Tasks = () => {
       <div className="list-container">
         <div className="filter-container">
           <button className="carousel" onClick={handleCarouselPrev}>
-            <FontAwesomeIcon icon={faAngleLeft} />
+            <span>
+              <FontAwesomeIcon icon={faAngleLeft} />
+            </span>
           </button>
           <p className="filter">
             Showing:
             {carouselIndex === 0 ? " Uncomplete" : " Complete"}
           </p>
           <button className="carousel" onClick={handleCarouselNext}>
-            <FontAwesomeIcon icon={faAngleRight} />
+            <span>
+              <FontAwesomeIcon icon={faAngleRight} />
+            </span>
           </button>
         </div>
         <ul className="list">
