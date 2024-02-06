@@ -12,6 +12,8 @@ import {
   faPen,
   faTrash,
   faCircleCheck,
+  faAngleLeft,
+  faAngleRight,
 } from "@fortawesome/free-solid-svg-icons";
 
 const Tasks = () => {
@@ -25,6 +27,7 @@ const Tasks = () => {
   const [taskToComplete, setTaskToComplete] = useState(null);
   const [subtaskIndex, setSubtaskIndex] = useState(null);
   const [updateTasks, setUpdateTasks] = useState(false);
+  const [carouselIndex, setCarouselIndex] = useState(0);
 
   const openCreateTask = () => {
     setIsCreateTaskVisible(true);
@@ -63,25 +66,54 @@ const Tasks = () => {
     setUpdateTasks(!updateTasks);
   };
 
+  const handleCarouselPrev = () => {
+    setCarouselIndex((prevIndex) => (prevIndex === 0 ? 1 : 0));
+  };
+
+  const handleCarouselNext = () => {
+    setCarouselIndex((prevIndex) => (prevIndex === 0 ? 1 : 0));
+  };
+
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/tasks`, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${await getAccessTokenSilently()}`,
-        },
-      });
+      let endpoint = "/tasks";
+
+      if (carouselIndex === 1) {
+        endpoint = "/tasks/completed";
+      }
+
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}${endpoint}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${await getAccessTokenSilently()}`,
+          },
+        }
+      );
       const data = await response.json();
       setTasks(data);
     };
 
     fetchData();
-  }, [updateTasks, getAccessTokenSilently]);
+  }, [updateTasks, getAccessTokenSilently, carouselIndex]);
 
   return (
     <div className="content-container">
       <h1>Tasks</h1>
       <div className="list-container">
+        <div className="filter-container">
+          <button className="carousel" onClick={handleCarouselPrev}>
+            <FontAwesomeIcon icon={faAngleLeft} />
+          </button>
+          <p className="filter">
+            Showing:
+            {carouselIndex === 0 ? " Uncomplete" : " Complete"}
+          </p>
+          <button className="carousel" onClick={handleCarouselNext}>
+            <FontAwesomeIcon icon={faAngleRight} />
+          </button>
+        </div>
         <ul className="list">
           {tasks.map((task) => (
             <li className="main-list-item" key={task._id}>

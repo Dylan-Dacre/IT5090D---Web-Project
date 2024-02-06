@@ -127,6 +127,14 @@
   display: block;
 }
 
+.carousel {
+  margin: 0 1rem;
+  color: #333;
+  font-size: 1.25rem;
+  background-color: transparent;
+  cursor: pointer;
+}
+
 /* Main Page Styles */
 
 .content-container {
@@ -212,6 +220,16 @@
 .date {
   font-size: 1.1rem;
   margin: 0 auto 2rem;
+}
+
+.filter {
+  display: inline-block;
+  background-color: #c7c7c7;
+  border-radius: 1rem;
+  padding: 0.5rem 0;
+  margin-bottom: 1rem;
+  width: 13.5rem;
+  text-align: center;
 }
 
 /* Create Styles */

@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const getTasks = require("../src/repository");
+const getCompletedTasks = require("../src/repository");
 const getTask = require("../src/repository");
 const createTask = require("../src/repository");
 const updateTask = require("../src/repository");
@@ -13,6 +14,19 @@ router.get("/", checkJwt, async (req, res, next) => {
   try {
     const userId = req.auth.payload.sub;
     const tasks = await getTasks.getTasks(userId);
+    const tasksArray = Array.isArray(tasks) ? tasks : [tasks];
+    return res.status(200).json(tasksArray);
+  } catch (err) {
+    next(err);
+  }
+});
+
+// Get all completed items
+
+router.get("/completed", checkJwt, async (req, res, next) => {
+  try {
+    const userId = req.auth.payload.sub;
+    const tasks = await getCompletedTasks.getCompletedTasks(userId);
     const tasksArray = Array.isArray(tasks) ? tasks : [tasks];
     return res.status(200).json(tasksArray);
   } catch (err) {

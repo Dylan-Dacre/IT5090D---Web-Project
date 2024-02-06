@@ -44,6 +44,26 @@ module.exports = {
     }
   },
 
+  // Get all completed items
+
+  getCompletedTasks: async (userId) => {
+    try {
+      const tasks = await Task.find({ userId: userId, completed: true });
+      return tasks;
+    } catch (err) {
+      throw new Error(err);
+    }
+  },
+
+  getCompletedGoals: async (userId) => {
+    try {
+      const goals = await Goal.find({ userId: userId, completed: true });
+      return goals;
+    } catch (err) {
+      throw new Error(err);
+    }
+  },
+
   // Get an item by id
 
   getTask: async (userId, taskId) => {
